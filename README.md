@@ -65,58 +65,12 @@ Visual documentation of the inventory and workshop conditions was collected to c
 💡 Key Findings
 ---------------
 
-|
+| Metric         | Insight                                      | Impact |
+|---------------|----------------------------------------------|--------|
+| **Seasonality** | Nov profits > ₹1 Lakh vs Sep profits < ₹25k | ~30% lost revenue due to stockouts in peak season |
+| **Top Products** | Bed & Custom categories dominate           | Chair category is underperforming (<3% profit share) |
+| **Supply Chain** | *Sheesham Crafts Inc.* avg delay: **5.5 days** | This single supplier causes **80% of production halts** |
 
-Metric
-
- |
-
-Insight
-
- |
-
-Impact
-
- |
-|
-
-**Seasonality**
-
- |
-
-Nov profits > ₹1 Lakh vs Sep profits < ₹25k
-
- |
-
-**~30% Lost Revenue** due to stockouts in peak season.
-
- |
-|
-
-**Top Products**
-
- |
-
-Bed & Custom categories dominate
-
- |
-
-'Chair' category is underperforming (<3% profit share).
-
- |
-|
-
-**Supply Chain**
-
- |
-
-"Sheesham Crafts Inc." avg delay: **5.5 Days**
-
- |
-
-This single supplier causes **80%** of production halts.
-
- |
 
 🚀 Strategic Recommendations
 ----------------------------

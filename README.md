@@ -1,4 +1,4 @@
-Optimising Furniture Sales Potential 🪑📊
+# Optimising Furniture Sales Potential 🪑📊
 
 Business Data Management Capstone Project | IIT Madras
 
@@ -8,88 +8,89 @@ Roll Number: 23f1000932
 
 Institute: IIT Madras (BS Degree Program)
 
-📖 Project Overview
+# 📖 Project Overview
 
 Good Luck Furniture is a small-scale, family-owned business in Prayagraj, UP, specializing in handcrafted wooden furniture. Despite a reputation for quality, the business faced operational bottlenecks including severe seasonal stockouts, capital tied up in unsold inventory, and unpredictable production delays.
 
 This project utilizes 2 years of primary sales and supplier data (2023-2025) to diagnose these issues and provide a data-driven roadmap for sustainable growth.
 
-⚠️ The Problem Statement
+# ⚠️ The Problem Statement
 
 Through initial interviews and observation, three core challenges were identified:
 
-Seasonal Stock Shortages: Significant loss of revenue during festive seasons (Diwali/Wedding season) due to lack of inventory planning.
+1. Seasonal Stock Shortages: Significant loss of revenue during festive seasons (Diwali/Wedding season) due to lack of inventory planning.
 
-Supply Chain Disruptions: Unpredictable delays in raw materials leading to late customer deliveries.
+2. Supply Chain Disruptions: Unpredictable delays in raw materials leading to late customer deliveries.
 
-Underperforming Portfolio: "Dead stock" occupying valuable showroom space while high-demand items were unavailable.
+3. Underperforming Portfolio: "Dead stock" occupying valuable showroom space while high-demand items were unavailable.
 
-🛣️ My Approach & Methodology
+# 🛣️ My Approach & Methodology
 
 To solve these problems, I followed a structured data analytics lifecycle:
 
-Data Collection: * Digitized manual record books into Google Sheets.
+1. Data Collection: * Digitized manual record books into Google Sheets.
 
-Collected 80 verified sales transactions and 22 supplier orders.
+  * Collected 80 verified sales transactions and 22 supplier orders.
 
-Data points included: Order Date, Cost Price, Selling Price, Supplier Name, Promised vs Actual Delivery Date.
+  * Data points included: Order Date, Cost Price, Selling Price, Supplier Name, Promised vs Actual Delivery Date.
 
-Data Cleaning:
+2. Data Cleaning:
 
-Standardized date formats and currency.
+  * Standardized date formats and currency.
 
-Calculated new metrics: Profit Margin, Delivery Delay (Days), and Year-over-Year Growth.
+  * Calculated new metrics: Profit Margin, Delivery Delay (Days), and Year-over-Year Growth.
 
-Analytical Techniques:
+3. Analytical Techniques:
 
-Time-Series Analysis: To visualize the "Boom & Bust" seasonal cycles.
+  * Time-Series Analysis: To visualize the "Boom & Bust" seasonal cycles.
 
-Pareto Analysis: To identify which product categories drive the majority of profits.
+  * Pareto Analysis: To identify which product categories drive the majority of profits.
 
-Correlation Analysis: To test if pricing strategies were affecting sales volume.
+  * Correlation Analysis: To test if pricing strategies were affecting sales volume.
 
-Supplier Performance Benchmarking: To identify specific bottlenecks in the supply chain.
+  * Supplier Performance Benchmarking: To identify specific bottlenecks in the supply chain.
 
-💡 Key Data Insights
+# 💡 Key Data Insights
 
 The analysis revealed critical insights that were previously unknown to the business owner:
 
-Extreme Seasonality: Profits in November (Peak) are 10x higher than in September (Monsoon low). The business was not stocking up in anticipation of this.
+  * Extreme Seasonality: Profits in November (Peak) are 10x higher than in September (Monsoon low). The business was        not stocking up in anticipation of this.
 
-Profit Concentration: Just two categories—'Bed' (33%) and 'Custom' (30.8%)—generate nearly 64% of total profit.
+  * Profit Concentration: Just two categories—'Bed' (33%) and 'Custom' (30.8%)—generate nearly 64% of total profit.
 
-The Bottleneck: While most suppliers had a delay of <1 day, one specific supplier, "Sheesham Crafts Inc.", had an average delay of 5.5 days, causing the majority of production issues.
+  * The Bottleneck: While most suppliers had a delay of <1 day, one specific supplier, "Sheesham Crafts Inc.", had an       average delay of 5.5 days, causing the majority of production issues.
 
-🚀 Strategic Recommendations
+# 🚀 Strategic Recommendations
 
 Based on the data, I proposed three specific solutions:
 
-Seasonal Inventory Plan: * Action: Procure raw materials for top 10 "Star Products" 30% in advance of September.
+1. Seasonal Inventory Plan:
+  * Action: Procure raw materials for top 10 "Star Products" 30% in advance of September.
+  
+  * Goal: Capture the forecasted ₹1.67 Lakh profit for the 2025 peak season.
 
-Goal: Capture the forecasted ₹1.67 Lakh profit for the 2025 peak season.
+2. "Bundle & Clear" Strategy:
 
-"Bundle & Clear" Strategy:
+  * Action: Bundle underperforming items (e.g., Rocking Chairs) with high-demand beds at a discount.
 
-Action: Bundle underperforming items (e.g., Rocking Chairs) with high-demand beds at a discount.
+  * Goal: Liquidate dead stock to free up capital for high-margin 'Custom' orders.
 
-Goal: Liquidate dead stock to free up capital for high-margin 'Custom' orders.
+3. Supplier Diversification:
 
-Supplier Diversification:
+  * Action: Shift 50% of orders from "Sheesham Crafts Inc." to alternative local suppliers (e.g., Rajesh Timber Store).
 
-Action: Shift 50% of orders from "Sheesham Crafts Inc." to alternative local suppliers (e.g., Rajesh Timber Store).
+  * Goal: Reduce average production delays from 5 days to 2 days.
 
-Goal: Reduce average production delays from 5 days to 2 days.
+# 📂 Repository Structure
 
-📂 Repository Structure
+  * index.html: The source code for the project portfolio website.
 
-index.html: The source code for the project portfolio website.
+  * final-report.pdf: The complete analysis, charts, and detailed recommendations.
 
-final-report.pdf: The complete analysis, charts, and detailed recommendations.
+  * midterm.pdf: Initial findings and data collection methodology.
 
-midterm.pdf: Initial findings and data collection methodology.
+  * proposal.pdf: Project timeline and problem definition.
 
-proposal.pdf: Project timeline and problem definition.
-
-presentation.pptx: Executive summary slides for stakeholders.
+  * presentation.pptx: Executive summary slides for stakeholders.
 
 This project was completed as part of the Business Data Management (BDM) course at IIT Madras.

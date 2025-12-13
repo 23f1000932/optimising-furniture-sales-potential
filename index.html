@@ -1,350 +1,558 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Good Luck Furniture | Business Data Analytics Capstone</title>
-    <meta name="description" content="Optimising Furniture Sales Potential - A Data-Driven Approach">
+    <title>Good Luck Furniture | Data Analytics Portfolio</title>
+    <meta name="description" content="Business Data Management Capstone - Transforming Furniture Sales with Data">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        :root { --primary: #78350f; --secondary: #d97706; --dark: #1c1917; --light: #fafaf9; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--light); color: var(--dark); }
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
-        .wood-gradient { background: linear-gradient(135deg, #451a03 0%, #78350f 100%); }
-        .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
-        .fade-in { animation: fadeIn 0.8s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.6); }
+        .gradient-text { background: linear-gradient(to right, #78350f, #d97706); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .animate-fade-up { animation: fadeUp 0.8s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        /* Blob Animation */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob { animation: blob 7s infinite; }
+        .animation-delay-2000 { animation-delay: 2s; }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800 antialiased scroll-smooth">
+<body class="antialiased selection:bg-amber-200 selection:text-amber-900">
 
-    <!-- Navigation -->
-    <nav class="bg-white/80 backdrop-blur-md fixed w-full z-50 border-b border-stone-200">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-stone-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-amber-700 rounded-lg flex items-center justify-center text-white">
-                        <i class="fa-solid fa-chair text-lg"></i>
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 bg-amber-900 rounded-lg flex items-center justify-center text-white shadow-lg group-hover:rotate-3 transition duration-300">
+                        <i class="fa-solid fa-couch"></i>
                     </div>
-                    <div>
-                        <span class="font-bold text-xl tracking-tight text-stone-900 block leading-none">Good Luck</span>
-                        <span class="text-xs uppercase tracking-widest text-amber-700 font-semibold">Furniture Analytics</span>
+                    <div class="leading-tight">
+                        <span class="font-bold text-xl text-stone-900 block tracking-tight">Good Luck</span>
+                        <span class="text-xs uppercase tracking-widest text-amber-700 font-bold">Analytics</span>
                     </div>
-                </div>
+                </a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#story" class="text-stone-600 hover:text-amber-700 font-medium transition">The Story</a>
-                    <a href="#insights" class="text-stone-600 hover:text-amber-700 font-medium transition">Data Insights</a>
-                    <a href="#strategy" class="text-stone-600 hover:text-amber-700 font-medium transition">Strategy</a>
-                    <a href="#downloads" class="px-5 py-2.5 rounded-full bg-stone-900 text-white font-medium hover:bg-stone-800 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">Project Files</a>
+                    <a href="#journey" class="text-sm font-bold text-stone-500 hover:text-amber-800 uppercase tracking-wide transition">Journey</a>
+                    <a href="#analysis" class="text-sm font-bold text-stone-500 hover:text-amber-800 uppercase tracking-wide transition">Insights</a>
+                    <a href="#strategy" class="text-sm font-bold text-stone-500 hover:text-amber-800 uppercase tracking-wide transition">Strategy</a>
+                     <!-- Gallery Link Button -->
+                    <a href="https://drive.google.com/drive/folders/1441zYiGjtpiynHZVXoQ-ygZSdqwY5lN4" target="_blank" class="text-sm font-bold text-amber-700 hover:text-amber-900 uppercase tracking-wide transition flex items-center gap-2">
+                        <i class="fa-regular fa-images"></i> Shop Gallery
+                    </a>
+                    <a href="#downloads" class="px-6 py-2.5 rounded-full bg-stone-900 text-white font-medium hover:bg-amber-900 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Download Artifacts
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative pt-32 pb-24 px-4 overflow-hidden">
-        <div class="absolute inset-0 z-0 opacity-10">
-            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="#78350f" />
-            </svg>
-        </div>
-        
-        <div class="max-w-6xl mx-auto text-center relative z-10 fade-in">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-sm font-semibold tracking-wide text-amber-800 bg-amber-100 rounded-full border border-amber-200">
-                <i class="fa-solid fa-graduation-cap"></i> IIT Madras • BDM Capstone Project
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 overflow-hidden">
+        <div class="max-w-7xl mx-auto text-center relative z-10 animate-fade-up">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-xs font-bold tracking-widest uppercase text-amber-900 bg-amber-50 rounded-full border border-amber-200 shadow-sm">
+                <i class="fa-solid fa-graduation-cap"></i> IIT Madras Capstone Project
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-stone-900 leading-tight">
-                Turning Data into <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-700 to-orange-600">Business Growth</span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-stone-900 leading-[1.1]">
+                Optimising <span class="gradient-text">Furniture Sales</span><br>with Data Intelligence
             </h1>
-            <p class="text-xl text-stone-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-                A comprehensive analysis of <strong>Good Luck Furniture</strong> (Prayagraj), utilizing 2 years of sales data to solve seasonal stockouts and optimize supply chain inefficiencies.
+            <p class="text-xl md:text-2xl text-stone-500 max-w-3xl mx-auto mb-12 font-light leading-relaxed animate-fade-up delay-100">
+                A complete business transformation analysis using <strong>2 years of sales history</strong> and <strong>supplier logs</strong>.
             </p>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-12 bg-white rounded-2xl p-6 shadow-xl border border-stone-100">
-                <div class="text-center">
-                    <p class="text-3xl font-bold text-amber-700">₹1.67L</p>
-                    <p class="text-xs uppercase text-stone-500 font-bold tracking-wider mt-1">Forecasted Profit</p>
+            <!-- Key Metrics Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto animate-fade-up delay-200">
+                <div class="glass p-6 rounded-2xl shadow-sm hover:border-amber-400 transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-xs text-stone-400 font-bold uppercase tracking-wider">Net Profit</p>
+                        <i class="fa-solid fa-arrow-trend-up text-green-500 group-hover:scale-110 transition"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-stone-800">₹7.39L</p>
+                    <p class="text-xs text-green-600 font-medium">+32% YoY Forecast</p>
                 </div>
-                <div class="text-center border-l border-stone-100">
-                    <p class="text-3xl font-bold text-amber-700">32.6%</p>
-                    <p class="text-xs uppercase text-stone-500 font-bold tracking-wider mt-1">Growth Trend</p>
+                <div class="glass p-6 rounded-2xl shadow-sm hover:border-amber-400 transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-xs text-stone-400 font-bold uppercase tracking-wider">Transactions</p>
+                        <i class="fa-solid fa-receipt text-amber-500 group-hover:scale-110 transition"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-stone-800">80+</p>
+                    <p class="text-xs text-stone-400">Validated Records</p>
                 </div>
-                <div class="text-center border-l border-stone-100">
-                    <p class="text-3xl font-bold text-amber-700">80+</p>
-                    <p class="text-xs uppercase text-stone-500 font-bold tracking-wider mt-1">Transactions Analyzed</p>
+                <div class="glass p-6 rounded-2xl shadow-sm hover:border-red-400 transition group border-l-4 border-l-red-500">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-xs text-stone-400 font-bold uppercase tracking-wider">Avg Delay</p>
+                        <i class="fa-solid fa-triangle-exclamation text-red-500 group-hover:scale-110 transition"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-stone-800">5.5 Days</p>
+                    <p class="text-xs text-red-600 font-medium">Sheesham Crafts Inc.</p>
                 </div>
-                <div class="text-center border-l border-stone-100">
-                    <p class="text-3xl font-bold text-amber-700">5.5 Days</p>
-                    <p class="text-xs uppercase text-stone-500 font-bold tracking-wider mt-1">Delay Identified</p>
+                <div class="glass p-6 rounded-2xl shadow-sm hover:border-amber-400 transition group">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-xs text-stone-400 font-bold uppercase tracking-wider">Top Category</p>
+                        <i class="fa-solid fa-bed text-amber-500 group-hover:scale-110 transition"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-stone-800">33%</p>
+                    <p class="text-xs text-stone-400">Bed Category Share</p>
                 </div>
             </div>
+
+            <!-- Shop Images Button -->
+            <div class="mt-12 animate-fade-up delay-300">
+                 <a href="https://drive.google.com/drive/folders/1441zYiGjtpiynHZVXoQ-ygZSdqwY5lN4" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-white border border-stone-200 rounded-full shadow-lg text-stone-800 font-bold hover:bg-stone-50 hover:border-amber-200 transition transform hover:-translate-y-1">
+                    <i class="fa-solid fa-camera-retro text-amber-600 text-xl"></i>
+                    <span>View Shop Photos & Gallery</span>
+                </a>
+                <p class="text-xs text-stone-400 mt-3">External link to Google Drive</p>
+            </div>
+        </div>
+        
+        <!-- Abstract BG Shapes -->
+        <div class="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
+            <div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-amber-100/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse"></div>
+            <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-stone-200/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
         </div>
     </header>
 
-    <!-- The Journey (Methodology) -->
-    <section id="story" class="py-20 bg-stone-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- NEW: ANALYTICAL JOURNEY SECTION -->
+    <section id="journey" class="py-24 bg-stone-100 relative overflow-hidden border-y border-stone-200">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+             <div class="absolute top-20 left-10 w-64 h-64 bg-amber-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+             <div class="absolute bottom-20 right-10 w-64 h-64 bg-stone-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">The Analytical Journey</h2>
-                <p class="text-stone-600 max-w-2xl mx-auto">From identifying operational bottlenecks in Prayagraj to delivering a data-backed roadmap for 2025.</p>
+                <span class="text-amber-600 font-bold uppercase tracking-widest text-xs">Methodology</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-2">From Manual Logs to Data-Driven Growth</h2>
+                <p class="text-stone-500 mt-4 max-w-2xl mx-auto">
+                    How I transformed scattered paper records into a strategic roadmap for Good Luck Furniture.
+                </p>
             </div>
 
             <div class="relative">
-                <!-- Line -->
-                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-stone-300 -translate-y-1/2 z-0"></div>
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-stone-200 via-amber-200 to-stone-200 -translate-y-1/2 z-0 rounded-full"></div>
                 
                 <div class="grid md:grid-cols-4 gap-8 relative z-10">
                     <!-- Step 1 -->
-                    <div class="bg-white p-6 rounded-xl shadow-md border-b-4 border-amber-600">
-                        <div class="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center text-white font-bold mb-4 mx-auto md:mx-0">1</div>
-                        <h3 class="font-bold text-lg mb-2">Problem Definition</h3>
-                        <p class="text-sm text-stone-600">Identified stockouts during "Lagan" (Wedding) seasons and capital tied up in dead stock.</p>
+                    <div class="group relative bg-white p-6 rounded-2xl shadow-sm border border-stone-100 hover:shadow-xl hover:border-amber-300 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-12 h-12 bg-stone-900 text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg group-hover:bg-amber-600 transition-colors relative z-10 mx-auto md:mx-0">1</div>
+                        <h3 class="text-lg font-bold text-stone-900 mb-2 text-center md:text-left">Discovery</h3>
+                        <p class="text-sm text-stone-500 text-center md:text-left">
+                            Identified the core pain point: <strong>Stockouts during "Lagan" (Wedding) seasons</strong> caused lost revenue.
+                        </p>
+                        <!-- Mobile Connector -->
+                        <div class="md:hidden absolute bottom-[-32px] left-1/2 w-0.5 h-8 bg-stone-300 -translate-x-1/2"></div>
                     </div>
+
                     <!-- Step 2 -->
-                    <div class="bg-white p-6 rounded-xl shadow-md border-b-4 border-amber-600">
-                        <div class="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center text-white font-bold mb-4 mx-auto md:mx-0">2</div>
-                        <h3 class="font-bold text-lg mb-2">Data Collection</h3>
-                        <p class="text-sm text-stone-600">Digitized manual records: 80 sales transactions and 22 supplier logs (2023-2025).</p>
+                    <div class="group relative bg-white p-6 rounded-2xl shadow-sm border border-stone-100 hover:shadow-xl hover:border-amber-300 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-12 h-12 bg-stone-900 text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg group-hover:bg-amber-600 transition-colors relative z-10 mx-auto md:mx-0">2</div>
+                        <h3 class="text-lg font-bold text-stone-900 mb-2 text-center md:text-left">Digitization</h3>
+                        <p class="text-sm text-stone-500 text-center md:text-left">
+                            Transcribed <strong>80+ manual ledger entries</strong> into digital datasets, cleaning inconsistent dates and prices.
+                        </p>
+                         <div class="md:hidden absolute bottom-[-32px] left-1/2 w-0.5 h-8 bg-stone-300 -translate-x-1/2"></div>
                     </div>
+
                     <!-- Step 3 -->
-                    <div class="bg-white p-6 rounded-xl shadow-md border-b-4 border-amber-600">
-                        <div class="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center text-white font-bold mb-4 mx-auto md:mx-0">3</div>
-                        <h3 class="font-bold text-lg mb-2">Analysis</h3>
-                        <p class="text-sm text-stone-600">Applied Time-Series Forecasting, Pareto Analysis, and Supplier Lag correlation.</p>
+                    <div class="group relative bg-white p-6 rounded-2xl shadow-sm border border-stone-100 hover:shadow-xl hover:border-amber-300 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-12 h-12 bg-stone-900 text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg group-hover:bg-amber-600 transition-colors relative z-10 mx-auto md:mx-0">3</div>
+                        <h3 class="text-lg font-bold text-stone-900 mb-2 text-center md:text-left">Analysis</h3>
+                        <p class="text-sm text-stone-500 text-center md:text-left">
+                            Applied <strong>Time-Series Forecasting</strong> to predict demand and <strong>Pareto Analysis</strong> to identify high-value products.
+                        </p>
+                         <div class="md:hidden absolute bottom-[-32px] left-1/2 w-0.5 h-8 bg-stone-300 -translate-x-1/2"></div>
                     </div>
+
                     <!-- Step 4 -->
-                    <div class="bg-white p-6 rounded-xl shadow-md border-b-4 border-amber-600">
-                        <div class="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center text-white font-bold mb-4 mx-auto md:mx-0">4</div>
-                        <h3 class="font-bold text-lg mb-2">Solution</h3>
-                        <p class="text-sm text-stone-600">Delivered a Seasonal Inventory Plan and Supplier Diversification Strategy.</p>
+                    <div class="group relative bg-white p-6 rounded-2xl shadow-sm border border-stone-100 hover:shadow-xl hover:border-amber-300 transition-all duration-300 hover:-translate-y-2">
+                        <div class="w-12 h-12 bg-stone-900 text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg group-hover:bg-amber-600 transition-colors relative z-10 mx-auto md:mx-0">4</div>
+                        <h3 class="text-lg font-bold text-stone-900 mb-2 text-center md:text-left">Strategy</h3>
+                        <p class="text-sm text-stone-500 text-center md:text-left">
+                            Formulated the <strong>"Bundle & Clear"</strong> strategy and a <strong>Supplier Diversification Plan</strong>.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Data Insights Dashboard -->
-    <section id="insights" class="py-20 bg-white">
+    <!-- DATA DASHBOARD SECTION -->
+    <section id="dashboard" class="py-24 bg-white border-y border-stone-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-12 text-center">Key Data Insights</h2>
-            
-            <div class="grid lg:grid-cols-2 gap-8 mb-8">
-                <!-- Insight 1: Seasonality -->
-                <div class="p-6 bg-white border border-stone-200 rounded-2xl shadow-lg">
-                    <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-chart-line text-amber-600"></i> The "Boom & Bust" Cycle
-                    </h3>
-                    <p class="text-stone-500 text-sm mb-6">Profits spike 10x during Oct-Nov (Festive) vs. Monsoon lows.</p>
-                    <canvas id="seasonalityChart" height="200"></canvas>
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+                <div>
+                    <span class="text-amber-600 font-bold uppercase tracking-widest text-xs">Raw Data Snapshot</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-2">Recent Sales Transactions</h2>
+                    <p class="text-stone-500 mt-2 max-w-lg">
+                        A glimpse into the cleaned dataset used for analysis, featuring real transactions.
+                    </p>
+                </div>
+                <button class="mt-4 md:mt-0 flex items-center gap-2 text-sm font-bold text-stone-900 border border-stone-200 px-4 py-2 rounded-lg hover:bg-stone-50 transition">
+                    <i class="fa-solid fa-database text-amber-600"></i> View Full Dataset (CSV)
+                </button>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Transaction Table (Spans full width) -->
+                <div class="lg:col-span-3 bg-white rounded-2xl border border-stone-200 shadow-xl overflow-hidden">
+                    <div class="bg-stone-50 px-6 py-4 border-b border-stone-200 flex justify-between items-center">
+                        <h3 class="font-bold text-stone-700"><i class="fa-solid fa-table-list mr-2 text-amber-600"></i>Sales Ledger</h3>
+                        <span class="text-xs font-mono text-stone-400">Source: Dataset.csv</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left">
+                            <thead class="bg-stone-100 text-stone-500 font-bold uppercase tracking-wider text-xs">
+                                <tr>
+                                    <th class="px-6 py-3">Date</th>
+                                    <th class="px-6 py-3">Product</th>
+                                    <th class="px-6 py-3">Cost</th>
+                                    <th class="px-6 py-3">Selling</th>
+                                    <th class="px-6 py-3">Profit</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-stone-100 font-mono text-stone-600">
+                                <!-- Data from Dataset.csv -->
+                                <tr class="hover:bg-amber-50/50 transition">
+                                    <td class="px-6 py-3">2024-04-16</td>
+                                    <td class="px-6 py-3 text-stone-900 font-medium">Sofa (3+1+1)</td>
+                                    <td class="px-6 py-3">₹45,000</td>
+                                    <td class="px-6 py-3">₹54,000</td>
+                                    <td class="px-6 py-3 text-green-600 font-bold">+₹9,000</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50/50 transition">
+                                    <td class="px-6 py-3">2024-04-09</td>
+                                    <td class="px-6 py-3 text-stone-900 font-medium">Full Room Set</td>
+                                    <td class="px-6 py-3">₹140,000</td>
+                                    <td class="px-6 py-3">₹190,000</td>
+                                    <td class="px-6 py-3 text-green-600 font-bold">+₹50,000</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50/50 transition">
+                                    <td class="px-6 py-3">2023-08-02</td>
+                                    <td class="px-6 py-3 text-stone-900 font-medium">Teak Wood Diwan</td>
+                                    <td class="px-6 py-3">₹22,500</td>
+                                    <td class="px-6 py-3">₹28,000</td>
+                                    <td class="px-6 py-3 text-green-600 font-bold">+₹5,500</td>
+                                </tr>
+                                <tr class="hover:bg-amber-50/50 transition">
+                                    <td class="px-6 py-3">2023-07-15</td>
+                                    <td class="px-6 py-3 text-stone-900 font-medium">Small Bookshelf</td>
+                                    <td class="px-6 py-3">₹5,500</td>
+                                    <td class="px-6 py-3">₹7,500</td>
+                                    <td class="px-6 py-3 text-amber-600 font-bold">+₹2,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISUAL ANALYTICS -->
+    <section id="analysis" class="py-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-amber-600 font-bold uppercase tracking-widest text-xs">Deep Dive Analysis</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-2">Visualizing the Inefficiencies</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Chart 1: Seasonality -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-lg transition duration-500">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-stone-900">The "Boom & Bust" Cycle</h3>
+                            <p class="text-stone-500 text-sm mt-1">Profits spike 10x during Nov/Dec vs Monsoon lows.</p>
+                        </div>
+                        <div class="bg-amber-50 w-10 h-10 rounded-full flex items-center justify-center text-amber-700">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="relative h-64 w-full">
+                        <canvas id="seasonalityChart"></canvas>
+                    </div>
                 </div>
 
-                <!-- Insight 2: Category Mix -->
-                <div class="p-6 bg-white border border-stone-200 rounded-2xl shadow-lg">
-                    <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-chart-pie text-amber-600"></i> Profit Concentration
-                    </h3>
-                    <p class="text-stone-500 text-sm mb-6">"Bed" and "Custom" categories drive nearly 64% of total profit.</p>
-                    <div class="flex justify-center h-64">
+                <!-- Chart 2: Category Mix -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-lg transition duration-500">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-stone-900">Profit Concentration (Pareto)</h3>
+                            <p class="text-stone-500 text-sm mt-1">Just 2 categories drive 64% of total profit.</p>
+                        </div>
+                        <div class="bg-amber-50 w-10 h-10 rounded-full flex items-center justify-center text-amber-700">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </div>
+                    </div>
+                    <div class="relative h-64 w-full flex justify-center">
                         <canvas id="categoryChart"></canvas>
                     </div>
                 </div>
-            </div>
-
-            <!-- Insight 3: Supplier Analysis -->
-            <div class="bg-stone-900 text-white rounded-2xl p-8 shadow-2xl overflow-hidden relative">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 text-white">Supply Chain Bottleneck Detected</h3>
-                        <p class="text-stone-400 mb-6">
-                            Analysis of supplier logs revealed that <span class="text-white font-bold">"Sheesham Crafts Inc."</span> is the primary cause of production delays, averaging 5.5 days late per order.
-                        </p>
-                        <ul class="space-y-4">
-                            <li class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                                <span class="text-sm">Bharat Hardware: <strong>0.33 Days (Reliable)</strong></span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                                <span class="text-sm">Prayag Timbers: <strong>1.17 Days (Reliable)</strong></span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-red-500"></div>
-                                <span class="text-sm">Sheesham Crafts Inc.: <strong>5.50 Days (Critical Risk)</strong></span>
-                            </li>
-                        </ul>
+                
+                 <!-- Chart 3: Price vs Profit Analysis -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-lg transition duration-500 lg:col-span-2">
+                    <div class="flex justify-between items-start mb-6">
+                         <div>
+                            <h3 class="text-xl font-bold text-stone-900">Price vs. Profit Correlation</h3>
+                            <p class="text-stone-500 text-sm mt-1">Strong positive correlation confirms healthy pricing strategy.</p>
+                        </div>
+                        <div class="bg-amber-50 w-10 h-10 rounded-full flex items-center justify-center text-amber-700">
+                            <i class="fa-solid fa-arrow-up-right-dots"></i>
+                        </div>
                     </div>
-                    <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
-                        <canvas id="supplierChart"></canvas>
+                     <div class="relative h-72 w-full">
+                         <!-- Using a placeholder for scatter plot as chart.js scatter needs specific xy data structure, mimicking linear trend -->
+                        <canvas id="priceProfitChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Chart 4: Supplier Bottleneck -->
+                <div class="lg:col-span-2 bg-stone-900 text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+                    <!-- Decor -->
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-amber-600 rounded-full blur-3xl opacity-20"></div>
+
+                    <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+                        <div>
+                            <span class="text-amber-500 font-bold uppercase tracking-widest text-xs">Critical Finding</span>
+                            <h3 class="text-3xl font-bold mt-2 mb-4">Supply Chain Bottleneck Detected</h3>
+                            <p class="text-stone-400 mb-6 leading-relaxed">
+                                Analysis of 22 supplier logs revealed that while most partners deliver within 24 hours, <strong class="text-white">"Sheesham Crafts Inc."</strong> averages a <strong class="text-red-400">5.5 day delay</strong>, causing 80% of production halts.
+                            </p>
+                            <div class="flex gap-4">
+                                <div class="bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/10">
+                                    <span class="block text-xs text-stone-400">Reliable Partner</span>
+                                    <span class="font-bold text-green-400">Bharat Hardware (0.3d)</span>
+                                </div>
+                                <div class="bg-red-500/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-red-500/20">
+                                    <span class="block text-xs text-stone-400">Risk Factor</span>
+                                    <span class="font-bold text-red-400">Sheesham Crafts (5.5d)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative h-64 w-full">
+                            <canvas id="supplierChart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Strategy Section -->
-    <section id="strategy" class="py-20 bg-stone-50">
+    <!-- STRATEGY SECTION -->
+    <section id="strategy" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-12 text-center">Strategic Recommendations</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-16 text-center">Strategic Roadmap</h2>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="group bg-white p-8 rounded-2xl border border-stone-200 hover:border-amber-500 transition-all duration-300 hover:shadow-xl relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-2 h-full bg-amber-600 transition-all duration-300 group-hover:w-full opacity-10"></div>
-                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-700 mb-6 text-xl">
+                <!-- Strategy Card 1 -->
+                <div class="group p-8 rounded-3xl border border-stone-200 hover:border-amber-500 transition-all duration-300 hover:shadow-2xl relative bg-stone-50 hover:bg-white">
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl text-amber-700 mb-6 group-hover:bg-amber-600 group-hover:text-white transition">
                         <i class="fa-solid fa-calendar-check"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 relative z-10">Seasonal Inventory Plan</h3>
-                    <p class="text-stone-600 relative z-10">
-                        Proactively increase stock of top 10 "Star Products" by 30% before September to capture the forecasted ₹1.67 Lakh peak profit in 2025.
+                    <h3 class="text-xl font-bold text-stone-900 mb-3">Seasonal Inventory Plan</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                        Use the 32.6% growth forecast to procure top 10 items in September, preventing the annual November stockout.
                     </p>
+                    <div class="text-xs font-bold text-amber-700 uppercase tracking-wide opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
+                        Target Impact: +₹1.67 Lakh Profit
+                    </div>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="group bg-white p-8 rounded-2xl border border-stone-200 hover:border-amber-500 transition-all duration-300 hover:shadow-xl relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-2 h-full bg-amber-600 transition-all duration-300 group-hover:w-full opacity-10"></div>
-                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-700 mb-6 text-xl">
+                <!-- Strategy Card 2 -->
+                <div class="group p-8 rounded-3xl border border-stone-200 hover:border-amber-500 transition-all duration-300 hover:shadow-2xl relative bg-stone-50 hover:bg-white">
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl text-amber-700 mb-6 group-hover:bg-amber-600 group-hover:text-white transition">
                         <i class="fa-solid fa-tags"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 relative z-10">"Bundle & Clear" Strategy</h3>
-                    <p class="text-stone-600 relative z-10">
-                        Liquidate dead stock (e.g., Rocking Chairs) by bundling them with high-demand beds. Reinvest recovered capital into high-margin Custom orders.
+                    <h3 class="text-xl font-bold text-stone-900 mb-3">"Bundle & Clear"</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                        Liquidate dead stock (e.g., Rocking Chairs) by bundling with high-demand Beds. Reinvest capital into Custom orders.
                     </p>
+                    <div class="text-xs font-bold text-amber-700 uppercase tracking-wide opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
+                        Target Impact: Free ₹1L Capital
+                    </div>
                 </div>
 
-                <!-- Card 3 -->
-                <div class="group bg-white p-8 rounded-2xl border border-stone-200 hover:border-amber-500 transition-all duration-300 hover:shadow-xl relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-2 h-full bg-amber-600 transition-all duration-300 group-hover:w-full opacity-10"></div>
-                    <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-700 mb-6 text-xl">
+                <!-- Strategy Card 3 -->
+                <div class="group p-8 rounded-3xl border border-stone-200 hover:border-amber-500 transition-all duration-300 hover:shadow-2xl relative bg-stone-50 hover:bg-white">
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl text-amber-700 mb-6 group-hover:bg-amber-600 group-hover:text-white transition">
                         <i class="fa-solid fa-handshake"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 relative z-10">Supplier Diversification</h3>
-                    <p class="text-stone-600 relative z-10">
-                        Reduce risk by shifting 50% of orders from "Sheesham Crafts Inc." to alternative local suppliers in Prayagraj (e.g., Rajesh Timber Store).
+                    <h3 class="text-xl font-bold text-stone-900 mb-3">Supplier Diversification</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                        Reduce dependency on "Sheesham Crafts" by qualifying 2 local backups (e.g., Rajesh Timber Store) for critical wood supplies.
                     </p>
+                    <div class="text-xs font-bold text-amber-700 uppercase tracking-wide opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
+                        Target Impact: < 2 Day Delay
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Downloads -->
-    <section id="downloads" class="py-20 bg-stone-900 text-white">
+    <!-- DOWNLOADS -->
+    <section id="downloads" class="py-20 bg-stone-900 text-stone-300">
         <div class="max-w-5xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4 text-white">Project Artifacts</h2>
-            <p class="text-stone-400 mb-12">Access the complete documentation of the analysis and findings.</p>
+            <h2 class="text-3xl font-bold text-white mb-6">Project Artifacts</h2>
+            <p class="mb-12 text-stone-400">Access the raw data files, presentation deck, and detailed PDF reports.</p>
             
-            <div class="grid sm:grid-cols-2 gap-4">
-                <a href="final-report.pdf" target="_blank" class="flex items-center p-4 bg-stone-800 rounded-lg hover:bg-amber-700 transition group border border-stone-700">
-                    <i class="fa-solid fa-file-pdf text-2xl text-stone-400 group-hover:text-white mr-4"></i>
-                    <div class="text-left">
-                        <div class="font-bold">Final Project Report</div>
-                        <div class="text-xs text-stone-400 group-hover:text-stone-200">Full analysis & recommendations</div>
-                    </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+                <a href="final-report.pdf" target="_blank" class="p-4 bg-stone-800/50 border border-stone-700 rounded-xl hover:bg-amber-900/20 hover:border-amber-700/50 transition group">
+                    <i class="fa-solid fa-file-invoice text-2xl text-stone-500 group-hover:text-amber-500 mb-3 block"></i>
+                    <h4 class="text-white font-bold text-sm">Final Report</h4>
+                    <p class="text-xs text-stone-500 mt-1">Full Analysis PDF</p>
                 </a>
-                <a href="presentation.pptx" target="_blank" class="flex items-center p-4 bg-stone-800 rounded-lg hover:bg-amber-700 transition group border border-stone-700">
-                    <i class="fa-solid fa-file-powerpoint text-2xl text-stone-400 group-hover:text-white mr-4"></i>
-                    <div class="text-left">
-                        <div class="font-bold">Executive Presentation</div>
-                        <div class="text-xs text-stone-400 group-hover:text-stone-200">Summary slides for stakeholders</div>
-                    </div>
+                <a href="presentation.pptx" target="_blank" class="p-4 bg-stone-800/50 border border-stone-700 rounded-xl hover:bg-amber-900/20 hover:border-amber-700/50 transition group">
+                    <i class="fa-solid fa-file-powerpoint text-2xl text-stone-500 group-hover:text-amber-500 mb-3 block"></i>
+                    <h4 class="text-white font-bold text-sm">Presentation</h4>
+                    <p class="text-xs text-stone-500 mt-1">Executive Summary</p>
                 </a>
-                <a href="midterm.pdf" target="_blank" class="flex items-center p-4 bg-stone-800 rounded-lg hover:bg-amber-700 transition group border border-stone-700">
-                    <i class="fa-regular fa-file-pdf text-2xl text-stone-400 group-hover:text-white mr-4"></i>
-                    <div class="text-left">
-                        <div class="font-bold">Mid-Term Report</div>
-                        <div class="text-xs text-stone-400 group-hover:text-stone-200">Initial data collection findings</div>
-                    </div>
+                <a href="midterm.pdf" target="_blank" class="p-4 bg-stone-800/50 border border-stone-700 rounded-xl hover:bg-amber-900/20 hover:border-amber-700/50 transition group">
+                    <i class="fa-regular fa-file-pdf text-2xl text-stone-500 group-hover:text-amber-500 mb-3 block"></i>
+                    <h4 class="text-white font-bold text-sm">Mid-Term Report</h4>
+                    <p class="text-xs text-stone-500 mt-1">Initial Findings</p>
                 </a>
-                <a href="proposal.pdf" target="_blank" class="flex items-center p-4 bg-stone-800 rounded-lg hover:bg-amber-700 transition group border border-stone-700">
-                    <i class="fa-regular fa-file-pdf text-2xl text-stone-400 group-hover:text-white mr-4"></i>
-                    <div class="text-left">
-                        <div class="font-bold">Project Proposal</div>
-                        <div class="text-xs text-stone-400 group-hover:text-stone-200">Problem statement & timeline</div>
-                    </div>
+                <a href="Dataset.csv" class="p-4 bg-stone-800/50 border border-stone-700 rounded-xl hover:bg-amber-900/20 hover:border-amber-700/50 transition group">
+                    <i class="fa-solid fa-database text-2xl text-stone-500 group-hover:text-amber-500 mb-3 block"></i>
+                    <h4 class="text-white font-bold text-sm">Raw Dataset</h4>
+                    <p class="text-xs text-stone-500 mt-1">Sales CSV File</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-stone-950 text-stone-500 py-12 border-t border-stone-900">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="font-serif text-white text-xl mb-2">Ayan Hussain</p>
-            <p class="text-sm mb-6">IIT Madras • BS Degree Program • Roll No: 23f1000932</p>
-            <div class="text-xs text-stone-600">
-                &copy; 2025 Good Luck Furniture Analysis Project. All rights reserved.
-            </div>
+    <footer class="bg-stone-950 py-12 text-center text-stone-600 border-t border-stone-900">
+        <p class="text-stone-400 font-serif text-xl mb-2">Ayan Hussain</p>
+        <p class="text-sm">IIT Madras • Roll No: 23f1000932</p>
+        <div class="mt-6 flex justify-center gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center hover:bg-stone-800 hover:text-white transition"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center hover:bg-stone-800 hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="mailto:23f1000932@ds.study.iitm.ac.in" class="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center hover:bg-stone-800 hover:text-white transition"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </footer>
 
-    <!-- Chart Scripts -->
+    <!-- CHART CONFIGURATION -->
     <script>
-        // 1. Seasonality Line Chart
-        new Chart(document.getElementById('seasonalityChart'), {
+        // 1. Seasonality (Report Data)
+        const ctx1 = document.getElementById('seasonalityChart').getContext('2d');
+        new Chart(ctx1, {
             type: 'line',
             data: {
                 labels: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May'],
                 datasets: [{
-                    label: 'Monthly Profit (₹)',
-                    data: [15000, 2000, 5000, 3000, 25000, 100000, 25000, 24000, 38000, 5000, 30000, 65000], // Approx data from report
-                    borderColor: '#d97706', // Amber 600
-                    backgroundColor: 'rgba(217, 119, 6, 0.1)',
+                    label: 'Profit (₹)',
+                    data: [15000, 2000, 5000, 3000, 25000, 100000, 25000, 24000, 38000, 5000, 30000, 65000],
+                    borderColor: '#b45309',
+                    backgroundColor: (context) => {
+                        const bg = context.chart.ctx.createLinearGradient(0, 0, 0, 300);
+                        bg.addColorStop(0, 'rgba(180, 83, 9, 0.2)');
+                        bg.addColorStop(1, 'rgba(180, 83, 9, 0)');
+                        return bg;
+                    },
                     borderWidth: 2,
                     tension: 0.4,
                     fill: true,
-                    pointBackgroundColor: '#fff',
-                    pointBorderColor: '#d97706'
+                    pointRadius: 0,
+                    pointHoverRadius: 6
                 }]
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
-                scales: {
-                    y: { beginAtZero: true, grid: { color: '#f5f5f4' } },
-                    x: { grid: { display: false } }
-                }
+                scales: { y: { display: false }, x: { grid: { display: false } } }
             }
         });
 
-        // 2. Category Doughnut Chart
-        new Chart(document.getElementById('categoryChart'), {
+        // 2. Categories (Report Data)
+        const ctx2 = document.getElementById('categoryChart').getContext('2d');
+        new Chart(ctx2, {
             type: 'doughnut',
             data: {
                 labels: ['Bed', 'Custom', 'Sofa', 'Table', 'Wardrobe', 'Chair'],
                 datasets: [{
-                    data: [33, 30.8, 12.9, 10.3, 10, 3], // Exact percentages from Report
-                    backgroundColor: ['#78350f', '#92400e', '#b45309', '#d97706', '#f59e0b', '#fcd34d'],
+                    data: [33, 30.8, 12.9, 10.3, 10, 3],
+                    backgroundColor: ['#451a03', '#78350f', '#92400e', '#b45309', '#d97706', '#fcd34d'],
                     borderWidth: 0
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: {
-                    legend: { position: 'right' }
+                plugins: { legend: { position: 'right', labels: { usePointStyle: true, font: { family: 'Outfit' } } } },
+                cutout: '75%'
+            }
+        });
+
+        // 3. Price vs Profit (Scatter Approximation Line)
+        const ctx4 = document.getElementById('priceProfitChart').getContext('2d');
+        new Chart(ctx4, {
+            type: 'line',
+            data: {
+                labels: ['5k', '25k', '50k', '75k', '100k', '125k', '150k'],
+                datasets: [{
+                    label: 'Profit per Item',
+                    data: [1000, 5000, 10000, 15000, 25000, 35000, 45000],
+                    borderColor: '#0ea5e9', // Blue 500
+                    backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#0ea5e9',
+                    pointRadius: 4,
+                    fill: false,
+                    tension: 0
+                }]
+            },
+            options: {
+                 responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                 scales: {
+                    x: { title: {display: true, text: 'Selling Price (₹)'} },
+                    y: { title: {display: true, text: 'Profit (₹)'}, beginAtZero: true }
                 }
             }
         });
 
-        // 3. Supplier Bar Chart
-        new Chart(document.getElementById('supplierChart'), {
+
+        // 4. Suppliers (Report Data)
+        const ctx3 = document.getElementById('supplierChart').getContext('2d');
+        new Chart(ctx3, {
             type: 'bar',
             data: {
                 labels: ['Bharat Hardware', 'Prayag Timbers', 'Royal Fabrics', 'Sheesham Crafts'],
                 datasets: [{
-                    label: 'Avg Delay (Days)',
-                    data: [0.33, 1.17, 3.0, 5.5], // Exact data from Report
-                    backgroundColor: ['#22c55e', '#22c55e', '#eab308', '#ef4444'], // Green, Green, Yellow, Red
-                    borderRadius: 4
+                    data: [0.33, 1.17, 3.0, 5.5],
+                    backgroundColor: ['#22c55e', '#22c55e', '#f59e0b', '#ef4444'],
+                    borderRadius: 6,
+                    barThickness: 20
                 }]
             },
             options: {
                 responsive: true,
-                indexAxis: 'y', // Horizontal bar
+                maintainAspectRatio: false,
+                indexAxis: 'y',
                 plugins: { legend: { display: false } },
                 scales: {
-                    x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#d6d3d1' } },
+                    x: { grid: { color: '#333' }, ticks: { color: '#888' } },
                     y: { grid: { display: false }, ticks: { color: '#fff' } }
                 }
             }

@@ -1,4 +1,4 @@
-Optimising Furniture Sales Potential 🪑
+Optimising Furniture Sales Potential 🪑📊
 
 Business Data Management Capstone Project | IIT Madras
 
@@ -8,34 +8,88 @@ Roll Number: 23f1000932
 
 Institute: IIT Madras (BS Degree Program)
 
-📄 Project Overview
+📖 Project Overview
 
-This project focuses on Good Luck Furniture, a small-scale business in Prayagraj, UP. The goal was to analyze historical sales data to solve critical operational challenges such as seasonal stock shortages, supply chain disruptions, and underperforming product portfolios.
+Good Luck Furniture is a small-scale, family-owned business in Prayagraj, UP, specializing in handcrafted wooden furniture. Despite a reputation for quality, the business faced operational bottlenecks including severe seasonal stockouts, capital tied up in unsold inventory, and unpredictable production delays.
 
-🔍 Key Findings
+This project utilizes 2 years of primary sales and supplier data (2023-2025) to diagnose these issues and provide a data-driven roadmap for sustainable growth.
 
-Seasonality: Identified a 10x profit surge during Oct-Nov (Festive Season) vs. Monsoon lows.
+⚠️ The Problem Statement
 
-Pareto Principle: 'Bed' and 'Custom' categories contribute 63.8% of total profit.
+Through initial interviews and observation, three core challenges were identified:
 
-Supply Chain: "Sheesham Crafts Inc." was identified as a bottleneck with an average delay of 5.5 days.
+Seasonal Stock Shortages: Significant loss of revenue during festive seasons (Diwali/Wedding season) due to lack of inventory planning.
 
-🚀 Recommendations
+Supply Chain Disruptions: Unpredictable delays in raw materials leading to late customer deliveries.
 
-Seasonal Inventory Plan: Increase stock of top 10 items by 30% before September.
+Underperforming Portfolio: "Dead stock" occupying valuable showroom space while high-demand items were unavailable.
 
-"Bundle & Clear" Strategy: Liquidate dead stock by bundling with high-demand items.
+🛣️ My Approach & Methodology
 
-Supplier Diversification: Reduce dependency on unreliable suppliers.
+To solve these problems, I followed a structured data analytics lifecycle:
 
-📂 Artifacts
+Data Collection: * Digitized manual record books into Google Sheets.
 
-Project Proposal
+Collected 80 verified sales transactions and 22 supplier orders.
 
-Mid-Term Report
+Data points included: Order Date, Cost Price, Selling Price, Supplier Name, Promised vs Actual Delivery Date.
 
-Final Report
+Data Cleaning:
 
-Presentation Deck
+Standardized date formats and currency.
 
-This website is hosted via GitHub Pages.
+Calculated new metrics: Profit Margin, Delivery Delay (Days), and Year-over-Year Growth.
+
+Analytical Techniques:
+
+Time-Series Analysis: To visualize the "Boom & Bust" seasonal cycles.
+
+Pareto Analysis: To identify which product categories drive the majority of profits.
+
+Correlation Analysis: To test if pricing strategies were affecting sales volume.
+
+Supplier Performance Benchmarking: To identify specific bottlenecks in the supply chain.
+
+💡 Key Data Insights
+
+The analysis revealed critical insights that were previously unknown to the business owner:
+
+Extreme Seasonality: Profits in November (Peak) are 10x higher than in September (Monsoon low). The business was not stocking up in anticipation of this.
+
+Profit Concentration: Just two categories—'Bed' (33%) and 'Custom' (30.8%)—generate nearly 64% of total profit.
+
+The Bottleneck: While most suppliers had a delay of <1 day, one specific supplier, "Sheesham Crafts Inc.", had an average delay of 5.5 days, causing the majority of production issues.
+
+🚀 Strategic Recommendations
+
+Based on the data, I proposed three specific solutions:
+
+Seasonal Inventory Plan: * Action: Procure raw materials for top 10 "Star Products" 30% in advance of September.
+
+Goal: Capture the forecasted ₹1.67 Lakh profit for the 2025 peak season.
+
+"Bundle & Clear" Strategy:
+
+Action: Bundle underperforming items (e.g., Rocking Chairs) with high-demand beds at a discount.
+
+Goal: Liquidate dead stock to free up capital for high-margin 'Custom' orders.
+
+Supplier Diversification:
+
+Action: Shift 50% of orders from "Sheesham Crafts Inc." to alternative local suppliers (e.g., Rajesh Timber Store).
+
+Goal: Reduce average production delays from 5 days to 2 days.
+
+📂 Repository Structure
+
+index.html: The source code for the project portfolio website.
+
+final-report.pdf: The complete analysis, charts, and detailed recommendations.
+
+midterm.pdf: Initial findings and data collection methodology.
+
+proposal.pdf: Project timeline and problem definition.
+
+presentation.pptx: Executive summary slides for stakeholders.
+
+This project was completed as part of the Business Data Management (BDM) course at IIT Madras.

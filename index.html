@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimising Furniture Sales Potential | Ayan Hussain</title>
+    <meta name="description" content="Business Data Management Capstone Project on Good Luck Furniture">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-chair text-blue-600 text-2xl mr-2"></i>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">Good Luck Furniture Project</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#overview" class="text-slate-600 hover:text-blue-600 font-medium transition">Overview</a>
+                    <a href="#problem" class="text-slate-600 hover:text-blue-600 font-medium transition">Challenges</a>
+                    <a href="#analysis" class="text-slate-600 hover:text-blue-600 font-medium transition">Analysis</a>
+                    <a href="#solutions" class="text-slate-600 hover:text-blue-600 font-medium transition">Solutions</a>
+                    <a href="#downloads" class="px-4 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition shadow-md">Downloads</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="gradient-bg text-white pt-32 pb-20 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="inline-block px-3 py-1 mb-4 text-sm font-semibold tracking-wider text-blue-100 uppercase bg-blue-800 rounded-full bg-opacity-50">
+                IIT Madras • BDM Capstone
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Optimising Furniture Sales Potential
+            </h1>
+            <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-10">
+                A data-driven transformation strategy for "Good Luck Furniture" to combat seasonal stockouts, optimize supply chains, and maximize profitability.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#analysis" class="px-8 py-3 bg-white text-blue-900 font-bold rounded-lg shadow-lg hover:bg-blue-50 transition">
+                    View Analysis
+                </a>
+                <a href="#downloads" class="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition">
+                    Download Reports
+                </a>
+            </div>
+            <div class="mt-12 flex justify-center items-center gap-8 text-blue-200">
+                <div class="text-center">
+                    <p class="text-3xl font-bold text-white">32%</p>
+                    <p class="text-sm">Forecasted Growth</p>
+                </div>
+                <div class="h-8 w-px bg-blue-400"></div>
+                <div class="text-center">
+                    <p class="text-3xl font-bold text-white">₹1.6L</p>
+                    <p class="text-sm">Proj. Peak Profit</p>
+                </div>
+                <div class="h-8 w-px bg-blue-400"></div>
+                <div class="text-center">
+                    <p class="text-3xl font-bold text-white">2 Yrs</p>
+                    <p class="text-sm">Data Analyzed</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Overview -->
+    <section id="overview" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Project Overview</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+                    Good Luck Furniture, a handcrafted furniture business in Prayagraj, faced critical operational bottlenecks. This project utilized historical sales data (2023-2025) to identify patterns and propose actionable business solutions.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
+                        <i class="fa-solid fa-magnifying-glass-chart text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Diagnostic</h3>
+                    <p class="text-slate-600">Analyzed 80+ sales transactions and supplier logs to pinpoint the root causes of revenue loss during peak seasons.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600 mb-6">
+                        <i class="fa-solid fa-lightbulb text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Strategy</h3>
+                    <p class="text-slate-600">Developed a "Bundle & Clear" strategy and a seasonal inventory plan to optimize stock levels and cash flow.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-600 mb-6">
+                        <i class="fa-solid fa-chart-line text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Impact</h3>
+                    <p class="text-slate-600">Forecasted a ₹1.6 Lakh profit potential for the 2025 peak season and identified key supply chain bottlenecks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statements -->
+    <section id="problem" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">Core Business Challenges</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
+                                <i class="fa-solid fa-calendar-xmark"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-slate-900">Seasonal Stock Shortages</h3>
+                            <p class="mt-2 text-slate-600">The business suffers from "Boom & Bust" cycles. Profits spike 10x during Oct-Nov, but poor planning leads to stockouts and lost revenue.</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-slate-900">Supply Chain Disruptions</h3>
+                            <p class="mt-2 text-slate-600">Over-dependence on a single supplier, "Sheesham Crafts Inc.", causes average production delays of 5.5 days.</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-red-500 text-white">
+                                <i class="fa-solid fa-couch"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-bold text-slate-900">Underperforming Portfolio</h3>
+                            <p class="mt-2 text-slate-600">Capital is tied up in dead stock (e.g., Rocking Chairs) while high-demand items (Beds, Custom sets) are often unavailable.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <canvas id="seasonalityChart"></canvas>
+                    <p class="text-center text-sm text-slate-500 mt-4 italic">Figure 1: The drastic seasonal profit spike (Oct-Nov) vs. Monsoon lows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analysis" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-slate-900 mb-12 text-center">Data Analysis & Insights</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                <!-- Insight 1 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+                    <div class="p-6 bg-blue-50 border-b border-blue-100">
+                        <h3 class="font-bold text-blue-900 text-lg">Pareto Principle in Product Mix</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 mb-4">
+                            Profitability is highly concentrated. Just two categories account for nearly 64% of total business profit.
+                        </p>
+                        <div class="relative pt-4">
+                            <div class="flex mb-2 items-center justify-between">
+                                <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200">
+                                    Beds & Custom
+                                </span>
+                                <span class="text-xs font-semibold inline-block text-blue-600">
+                                    63.8%
+                                </span>
+                            </div>
+                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200">
+                                <div style="width:63.8%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600"></div>
+                            </div>
+                            <div class="flex mb-2 items-center justify-between">
+                                <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-slate-600 bg-slate-200">
+                                    All Other Products
+                                </span>
+                                <span class="text-xs font-semibold inline-block text-slate-600">
+                                    36.2%
+                                </span>
+                            </div>
+                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-slate-200">
+                                <div style="width:36.2%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-slate-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insight 2 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+                    <div class="p-6 bg-red-50 border-b border-red-100">
+                        <h3 class="font-bold text-red-900 text-lg">Supplier Performance Gap</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-slate-600 mb-4">
+                            Data identified "Sheesham Crafts Inc." as the primary bottleneck compared to reliable suppliers like "Bharat Hardware".
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between items-center border-b pb-2">
+                                <span class="text-slate-700">Bharat Hardware</span>
+                                <span class="text-green-600 font-bold text-sm">0.3 days delay</span>
+                            </li>
+                            <li class="flex justify-between items-center border-b pb-2">
+                                <span class="text-slate-700">Prayag Timbers</span>
+                                <span class="text-green-600 font-bold text-sm">1.2 days delay</span>
+                            </li>
+                            <li class="flex justify-between items-center bg-red-50 p-2 rounded">
+                                <span class="text-slate-900 font-bold">Sheesham Crafts Inc.</span>
+                                <span class="text-red-600 font-bold text-sm">5.5 days delay</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-16 text-center">Strategic Recommendations</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Rec 1 -->
+                <div class="relative p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:-translate-y-2 transition duration-300">
+                    <div class="absolute -top-6 left-8 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center font-bold text-xl">1</div>
+                    <h3 class="mt-6 text-xl font-bold mb-4">Seasonal Inventory Plan</h3>
+                    <p class="text-slate-400">Proactively increase procurement of top 10 products by 30% before September. Target the forecasted ₹1.67L peak profit in 2025.</p>
+                </div>
+                <!-- Rec 2 -->
+                <div class="relative p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:-translate-y-2 transition duration-300">
+                    <div class="absolute -top-6 left-8 w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center font-bold text-xl">2</div>
+                    <h3 class="mt-6 text-xl font-bold mb-4">"Bundle & Clear" Strategy</h3>
+                    <p class="text-slate-400">Liquidate dead stock (e.g., Rocking Chairs) by bundling them with Star Products. Use recovered capital to reinvest in 'Custom' orders.</p>
+                </div>
+                <!-- Rec 3 -->
+                <div class="relative p-8 bg-slate-800 rounded-2xl border border-slate-700 hover:-translate-y-2 transition duration-300">
+                    <div class="absolute -top-6 left-8 w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center font-bold text-xl">3</div>
+                    <h3 class="mt-6 text-xl font-bold mb-4">Diversify Supply Chain</h3>
+                    <p class="text-slate-400">Reduce dependency on "Sheesham Crafts Inc." by shifting 50% of orders to new, qualified local suppliers in Prayagraj.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section id="downloads" class="py-20 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4 text-center">Project Artifacts</h2>
+            <p class="text-center text-slate-600 mb-12">Download the full reports and presentation slides.</p>
+            
+            <div class="grid sm:grid-cols-2 gap-6">
+                <!-- Proposal -->
+                <a href="proposal.pdf" target="_blank" class="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-blue-500 hover:shadow-md transition">
+                    <div class="h-12 w-12 rounded-lg bg-gray-100 text-gray-500 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition">
+                        <i class="fa-regular fa-file-pdf text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h4 class="text-lg font-bold text-slate-900 group-hover:text-blue-600">Project Proposal</h4>
+                        <p class="text-sm text-slate-500">Initial problem statement & timeline</p>
+                    </div>
+                </a>
+
+                <!-- Midterm -->
+                <a href="midterm.pdf" target="_blank" class="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-blue-500 hover:shadow-md transition">
+                    <div class="h-12 w-12 rounded-lg bg-gray-100 text-gray-500 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition">
+                        <i class="fa-regular fa-file-pdf text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h4 class="text-lg font-bold text-slate-900 group-hover:text-blue-600">Mid-Term Report</h4>
+                        <p class="text-sm text-slate-500">Data collection & initial analysis</p>
+                    </div>
+                </a>
+
+                <!-- Final Report -->
+                <a href="final-report.pdf" target="_blank" class="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-blue-500 hover:shadow-md transition">
+                    <div class="h-12 w-12 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-file-invoice text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h4 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600">Final Report</h4>
+                        <p class="text-sm text-slate-500">Complete analysis & recommendations</p>
+                    </div>
+                </a>
+
+                <!-- Presentation -->
+                <a href="presentation.pptx" target="_blank" class="group flex items-center p-6 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-blue-500 hover:shadow-md transition">
+                    <div class="h-12 w-12 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center group-hover:bg-orange-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-file-powerpoint text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h4 class="text-lg font-bold text-slate-900 group-hover:text-orange-600">Final Presentation</h4>
+                        <p class="text-sm text-slate-500">Summary slides (PPTX)</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-4">Business Data Management Capstone Project • IIT Madras</p>
+            <p class="font-bold text-white text-lg mb-2">Ayan Hussain</p>
+            <p>Roll No: 23f1000932 • <a href="mailto:23f1000932@ds.study.iitm.ac.in" class="text-blue-400 hover:underline">23f1000932@ds.study.iitm.ac.in</a></p>
+            <div class="mt-8 pt-8 border-t border-slate-800 text-sm">
+                &copy; 2025 Optimising Furniture Sales Potential. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chart Script -->
+    <script>
+        const ctx = document.getElementById('seasonalityChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Profit (₹)',
+                    data: [15000, 2000, 5000, 3000, 25000, 95000, 25000, 24000, 38000, 5000, 30000, 65000],
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'Monthly Profit Trend (Seasonality)' }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

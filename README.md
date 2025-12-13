@@ -1,96 +1,157 @@
-# Optimising Furniture Sales Potential 🪑📊
+Optimising Furniture Sales Potential 🪑📊
+=========================================
 
-Business Data Management Capstone Project | IIT Madras
+### Business Data Management Capstone Project | IIT Madras
 
-Student: Ayan Hussain
+**Student:** Ayan Hussain | **Roll:** 23f1000932 | **Institute:** IIT Madras
 
-Roll Number: 23f1000932
+📖 Project Overview
+-------------------
 
-Institute: IIT Madras (BS Degree Program)
+**Good Luck Furniture** (Prayagraj, UP) is a family-owned business known for handcrafted wooden furniture. Despite a reputation for quality, the business faced recurring **operational bottlenecks**---specifically during the wedding ("Lagan") season.
 
-# 📖 Project Overview
+This project utilized **2 years of digitized sales records (2023-2025)** to diagnose the root causes of lost revenue and provide a data-backed roadmap for growth.
 
-Good Luck Furniture is a small-scale, family-owned business in Prayagraj, UP, specializing in handcrafted wooden furniture. Despite a reputation for quality, the business faced operational bottlenecks including severe seasonal stockouts, capital tied up in unsold inventory, and unpredictable production delays.
+👉 [**View the Live Project Website**](https://www.google.com/search?q=https://yourusername.github.io/furniture-sales-optimization/ "null") for interactive charts and the full analysis journey.
 
-This project utilizes 2 years of primary sales and supplier data (2023-2025) to diagnose these issues and provide a data-driven roadmap for sustainable growth.
+📂 Data Assets
+--------------
 
-# ⚠️ The Problem Statement
+The analysis is built on two primary datasets digitized from manual logbooks:
 
-Through initial interviews and observation, three core challenges were identified:
+### 1\. Sales Dataset (`Dataset.csv`)
 
-1. Seasonal Stock Shortages: Significant loss of revenue during festive seasons (Diwali/Wedding season) due to lack of inventory planning.
+Contains **80 verified transactions** with the following schema:
 
-2. Supply Chain Disruptions: Unpredictable delays in raw materials leading to late customer deliveries.
+-   `OrderID`: Unique identifier (e.g., GLF-1001)
 
-3. Underperforming Portfolio: "Dead stock" occupying valuable showroom space while high-demand items were unavailable.
+-   `OrderDate`: Date of purchase
 
-# 🛣️ My Approach & Methodology
+-   `Category`: Bed, Sofa, Table, Custom, etc.
 
-To solve these problems, I followed a structured data analytics lifecycle:
+-   `CostPrice` vs `SellingPrice`: Used to calculate margins
 
-1. Data Collection: * Digitized manual record books into Google Sheets.
+-   `Profit`: Calculated field
 
-  * Collected 80 verified sales transactions and 22 supplier orders.
+### 2\. Shop Gallery
 
-  * Data points included: Order Date, Cost Price, Selling Price, Supplier Name, Promised vs Actual Delivery Date.
+Visual documentation of the inventory and workshop conditions was collected to contextualize the data.
 
-2. Data Cleaning:
+-   [View Shop Photo Gallery (Google Drive)](https://drive.google.com/drive/folders/1441zYiGjtpiynHZVXoQ-ygZSdqwY5lN4 "null")
 
-  * Standardized date formats and currency.
+🛠️ Analysis Methodology
+------------------------
 
-  * Calculated new metrics: Profit Margin, Delivery Delay (Days), and Year-over-Year Growth.
+### Phase 1: Data Cleaning & Prep
 
-3. Analytical Techniques:
+-   **Standardization:** Converted inconsistent date formats to `DD-MM-YYYY`.
 
-  * Time-Series Analysis: To visualize the "Boom & Bust" seasonal cycles.
+-   **Error Handling:** Removed incomplete records from the manual logs.
 
-  * Pareto Analysis: To identify which product categories drive the majority of profits.
+-   **Feature Engineering:**
 
-  * Correlation Analysis: To test if pricing strategies were affecting sales volume.
+    -   `Delivery_Lag` = `Actual_Delivery_Date` - `Promised_Date`
 
-  * Supplier Performance Benchmarking: To identify specific bottlenecks in the supply chain.
+    -   `Profit_Margin` = `(Profit / Selling_Price) * 100`
 
-# 💡 Key Data Insights
+### Phase 2: Exploratory Data Analysis (EDA)
 
-The analysis revealed critical insights that were previously unknown to the business owner:
+-   **Time-Series Decomposition:** Visualized monthly profit to identify the **10x spike** in Nov/Dec.
 
-  * Extreme Seasonality: Profits in November (Peak) are 10x higher than in September (Monsoon low). The business was        not stocking up in anticipation of this.
+-   **Pareto Analysis (80/20):** Identified that **63.8%** of profits come from just the 'Bed' & 'Custom' categories.
 
-  * Profit Concentration: Just two categories—'Bed' (33%) and 'Custom' (30.8%)—generate nearly 64% of total profit.
+-   **Supplier Benchmarking:** Calculated average delay days per supplier.
 
-  * The Bottleneck: While most suppliers had a delay of <1 day, one specific supplier, "Sheesham Crafts Inc.", had an       average delay of 5.5 days, causing the majority of production issues.
+💡 Key Findings
+---------------
 
-# 🚀 Strategic Recommendations
+|
 
-Based on the data, I proposed three specific solutions:
+Metric
 
-1. Seasonal Inventory Plan:
-  * Action: Procure raw materials for top 10 "Star Products" 30% in advance of September.
-  
-  * Goal: Capture the forecasted ₹1.67 Lakh profit for the 2025 peak season.
+ |
 
-2. "Bundle & Clear" Strategy:
+Insight
 
-  * Action: Bundle underperforming items (e.g., Rocking Chairs) with high-demand beds at a discount.
+ |
 
-  * Goal: Liquidate dead stock to free up capital for high-margin 'Custom' orders.
+Impact
 
-3. Supplier Diversification:
+ |
+|
 
-  * Action: Shift 50% of orders from "Sheesham Crafts Inc." to alternative local suppliers (e.g., Rajesh Timber Store).
+**Seasonality**
 
-  * Goal: Reduce average production delays from 5 days to 2 days.
+ |
 
-# 📂 Repository Structure
+Nov profits > ₹1 Lakh vs Sep profits < ₹25k
 
-  * index.html: The source code for the project portfolio website.
+ |
 
-  * final-report.pdf: The complete analysis, charts, and detailed recommendations.
+**~30% Lost Revenue** due to stockouts in peak season.
 
-  * midterm.pdf: Initial findings and data collection methodology.
+ |
+|
 
-  * proposal.pdf: Project timeline and problem definition.
+**Top Products**
 
-  * presentation.pptx: Executive summary slides for stakeholders.
+ |
 
-This project was completed as part of the Business Data Management (BDM) course at IIT Madras.
+Bed & Custom categories dominate
+
+ |
+
+'Chair' category is underperforming (<3% profit share).
+
+ |
+|
+
+**Supply Chain**
+
+ |
+
+"Sheesham Crafts Inc." avg delay: **5.5 Days**
+
+ |
+
+This single supplier causes **80%** of production halts.
+
+ |
+
+🚀 Strategic Recommendations
+----------------------------
+
+Based on the data, three strategies were presented to the stakeholder:
+
+1.  **Seasonal Inventory Plan:**
+
+    -   *Action:* Procure raw materials for top 10 items 30% in advance of September.
+
+    -   *Target:* Capture the forecasted **₹1.67 Lakh** peak profit in 2025.
+
+2.  **"Bundle & Clear" Strategy:**
+
+    -   *Action:* Bundle slow-moving inventory (Rocking Chairs) with high-demand Beds.
+
+    -   *Target:* Liquidate dead stock to free up **₹1 Lakh** in working capital.
+
+3.  **Supplier Diversification:**
+
+    -   *Action:* Shift 50% of orders from "Sheesham Crafts" to "Rajesh Timber Store".
+
+    -   *Target:* Reduce average delay to **< 2 Days**.
+
+📂 Repository Contents
+----------------------
+
+-   `index.html`: Portfolio website source code.
+
+-   `Dataset.csv`: Cleaned sales transaction data.
+
+-   `final-report.pdf`: Comprehensive analysis & charts.
+
+-   `presentation.pptx`: Executive summary deck.
+
+-   `midterm.pdf` & `proposal.pdf`: Project timeline and initial findings.
+
+*This project was completed as part of the Business Data Management (BDM) course at IIT Madras.*

@@ -12,7 +12,7 @@ Optimising Furniture Sales Potential 🪑📊
 
 This project utilized **2 years of digitized sales records (2023-2025)** to diagnose the root causes of lost revenue and provide a data-backed roadmap for growth.
 
-👉 [**View the Live Project Website**](https://www.google.com/search?q=https://yourusername.github.io/furniture-sales-optimization/ "null") for interactive charts and the full analysis journey.
+👉 [**View the Live Project Website**](https://23f1000932.github.io/optimising-furniture-sales-potential/ "null") for interactive charts and the full analysis journey.
 
 📂 Data Assets
 --------------

@@ -21,7 +21,7 @@ The analysis is built on two primary datasets digitized from manual logbooks:
 
 ### 1\. Sales Dataset (`Dataset.csv`)
 
-Contains **80 verified transactions** with the following schema:
+Contains **Total 80 verified transactions** with the following schema:
 
 -   `OrderID`: Unique identifier (e.g., GLF-1001)
 

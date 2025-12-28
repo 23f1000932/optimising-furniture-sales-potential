@@ -1,45 +1,142 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Good Luck Furniture | Data Analytics Portfolio</title>
     <meta name="description" content="Business Data Management Capstone - Transforming Furniture Sales with Data">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#78350f',
+                        secondary: '#d97706',
+                        dark: '#1c1917',
+                        light: '#fafaf9',
+                    }
+                }
+            }
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
     <style>
-        :root { --primary: #78350f; --secondary: #d97706; --dark: #1c1917; --light: #fafaf9; }
-        body { font-family: 'Outfit', sans-serif; background-color: var(--light); color: var(--dark); }
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
-        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.6); }
-        .gradient-text { background: linear-gradient(to right, #78350f, #d97706); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .animate-fade-up { animation: fadeUp 0.8s ease-out forwards; opacity: 0; transform: translateY(20px); }
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
+        :root {
+            --primary: #78350f;
+            --secondary: #d97706;
+            --dark: #1c1917;
+            --light: #fafaf9;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .dark .glass {
+            background: rgba(28, 25, 23, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #78350f, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dark .gradient-text {
+            background: linear-gradient(to right, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
         /* Blob Animation */
         @keyframes blob {
-            0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-            100% { transform: translate(0px, 0px) scale(1); }
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
         }
-        .animate-blob { animation: blob 7s infinite; }
-        .animation-delay-2000 { animation-delay: 2s; }
+
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-amber-200 selection:text-amber-900">
+
+<body
+    class="antialiased selection:bg-amber-200 selection:text-amber-900 dark:bg-stone-950 dark:text-stone-100 transition-colors duration-300">
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-stone-200">
+    <nav
+        class="fixed w-full z-50 transition-all duration-300 bg-white/80 dark:bg-stone-900/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 bg-amber-900 rounded-lg flex items-center justify-center text-white shadow-lg group-hover:rotate-3 transition duration-300">
+                    <div
+                        class="w-10 h-10 bg-amber-900 rounded-lg flex items-center justify-center text-white shadow-lg group-hover:rotate-3 transition duration-300">
                         <i class="fa-solid fa-couch"></i>
                     </div>
                     <div class="leading-tight">
@@ -48,14 +145,24 @@
                     </div>
                 </a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#journey" class="text-sm font-bold text-stone-500 hover:text-amber-800 uppercase tracking-wide transition">Journey</a>
-                    <a href="#analysis" class="text-sm font-bold text-stone-500 hover:text-amber-800 uppercase tracking-wide transition">Insights</a>
-                    <a href="#strategy" class="text-sm font-bold text-stone-500 hover:text-amber-800 uppercase tracking-wide transition">Strategy</a>
-                     <!-- Gallery Link Button -->
-                    <a href="https://drive.google.com/drive/folders/1441zYiGjtpiynHZVXoQ-ygZSdqwY5lN4" target="_blank" class="text-sm font-bold text-amber-700 hover:text-amber-900 uppercase tracking-wide transition flex items-center gap-2">
+                    <a href="#journey"
+                        class="text-sm font-bold text-stone-500 hover:text-amber-800 uppercase tracking-wide transition">Journey</a>
+                    <a href="#analysis"
+                        class="text-sm font-bold text-stone-500 hover:text-amber-800 uppercase tracking-wide transition">Insights</a>
+                    <a href="#strategy"
+                        class="text-sm font-bold text-stone-500 hover:text-amber-800 uppercase tracking-wide transition">Strategy</a>
+                    <!-- Gallery Link Button -->
+                    <a href="https://drive.google.com/drive/folders/1441zYiGjtpiynHZVXoQ-ygZSdqwY5lN4" target="_blank"
+                        class="text-sm font-bold text-amber-700 hover:text-amber-900 uppercase tracking-wide transition flex items-center gap-2">
                         <i class="fa-regular fa-images"></i> Shop Gallery
                     </a>
-                    <a href="#downloads" class="px-6 py-2.5 rounded-full bg-stone-900 text-white font-medium hover:bg-amber-900 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle"
+                        class="w-10 h-10 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-amber-500 hover:bg-amber-100 dark:hover:bg-stone-700 transition flex items-center justify-center focus:outline-none">
+                        <i id="theme-icon" class="fa-solid fa-moon"></i>
+                    </button>
+                    <a href="#downloads"
+                        class="px-6 py-2.5 rounded-full bg-stone-900 text-white font-medium hover:bg-amber-900 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                         Download Artifacts
                     </a>
                 </div>
@@ -66,128 +173,173 @@
     <!-- Hero Section -->
     <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 overflow-hidden">
         <div class="max-w-7xl mx-auto text-center relative z-10 animate-fade-up">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-xs font-bold tracking-widest uppercase text-amber-900 bg-amber-50 rounded-full border border-amber-200 shadow-sm">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-xs font-bold tracking-widest uppercase text-amber-900 dark:text-amber-500 bg-amber-50 dark:bg-stone-800 rounded-full border border-amber-200 dark:border-stone-700 shadow-sm">
                 <i class="fa-solid fa-graduation-cap"></i> IIT Madras Capstone Project
             </div>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-stone-900 leading-[1.1]">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-stone-900 dark:text-white leading-[1.1]">
                 Optimising <span class="gradient-text">Furniture Sales</span><br>with Data Intelligence
             </h1>
-            <p class="text-xl md:text-2xl text-stone-500 max-w-3xl mx-auto mb-12 font-light leading-relaxed animate-fade-up delay-100">
-                A complete business transformation analysis using <strong>2 years of sales history</strong> and <strong>supplier logs</strong>.
+            <p
+                class="text-xl md:text-2xl text-stone-500 dark:text-stone-400 max-w-3xl mx-auto mb-12 font-light leading-relaxed animate-fade-up delay-100">
+                A complete business transformation analysis using <strong>2 years of sales history</strong> and
+                <strong>supplier logs</strong>.
             </p>
-            
+
             <!-- Key Metrics Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto animate-fade-up delay-200">
                 <div class="glass p-6 rounded-2xl shadow-sm hover:border-amber-400 transition group">
                     <div class="flex items-center justify-between mb-2">
-                        <p class="text-xs text-stone-400 font-bold uppercase tracking-wider">Net Profit</p>
+                        <p class="text-xs text-stone-400 dark:text-stone-500 font-bold uppercase tracking-wider">Net
+                            Profit</p>
                         <i class="fa-solid fa-arrow-trend-up text-green-500 group-hover:scale-110 transition"></i>
                     </div>
-                    <p class="text-3xl font-bold text-stone-800">₹7.39L</p>
+                    <p class="text-3xl font-bold text-stone-800 dark:text-stone-200">₹7.39L</p>
                     <p class="text-xs text-green-600 font-medium">+32% YoY Forecast</p>
                 </div>
                 <div class="glass p-6 rounded-2xl shadow-sm hover:border-amber-400 transition group">
                     <div class="flex items-center justify-between mb-2">
-                        <p class="text-xs text-stone-400 font-bold uppercase tracking-wider">Transactions</p>
+                        <p class="text-xs text-stone-400 dark:text-stone-500 font-bold uppercase tracking-wider">
+                            Transactions</p>
                         <i class="fa-solid fa-receipt text-amber-500 group-hover:scale-110 transition"></i>
                     </div>
-                    <p class="text-3xl font-bold text-stone-800">80+</p>
-                    <p class="text-xs text-stone-400">Validated Records</p>
+                    <p class="text-3xl font-bold text-stone-800 dark:text-stone-200">80+</p>
+                    <p class="text-xs text-stone-400 dark:text-stone-500">Validated Records</p>
                 </div>
-                <div class="glass p-6 rounded-2xl shadow-sm hover:border-red-400 transition group border-l-4 border-l-red-500">
+                <div
+                    class="glass p-6 rounded-2xl shadow-sm hover:border-red-400 transition group border-l-4 border-l-red-500">
                     <div class="flex items-center justify-between mb-2">
-                        <p class="text-xs text-stone-400 font-bold uppercase tracking-wider">Avg Delay</p>
+                        <p class="text-xs text-stone-400 dark:text-stone-500 font-bold uppercase tracking-wider">Avg
+                            Delay</p>
                         <i class="fa-solid fa-triangle-exclamation text-red-500 group-hover:scale-110 transition"></i>
                     </div>
-                    <p class="text-3xl font-bold text-stone-800">5.5 Days</p>
+                    <p class="text-3xl font-bold text-stone-800 dark:text-stone-200">5.5 Days</p>
                     <p class="text-xs text-red-600 font-medium">Sheesham Crafts Inc.</p>
                 </div>
                 <div class="glass p-6 rounded-2xl shadow-sm hover:border-amber-400 transition group">
                     <div class="flex items-center justify-between mb-2">
-                        <p class="text-xs text-stone-400 font-bold uppercase tracking-wider">Top Category</p>
+                        <p class="text-xs text-stone-400 dark:text-stone-500 font-bold uppercase tracking-wider">Top
+                            Category</p>
                         <i class="fa-solid fa-bed text-amber-500 group-hover:scale-110 transition"></i>
                     </div>
-                    <p class="text-3xl font-bold text-stone-800">33%</p>
-                    <p class="text-xs text-stone-400">Bed Category Share</p>
+                    <p class="text-3xl font-bold text-stone-800 dark:text-stone-200">33%</p>
+                    <p class="text-xs text-stone-400 dark:text-stone-500">Bed Category Share</p>
                 </div>
             </div>
 
             <!-- Shop Images Button -->
             <div class="mt-12 animate-fade-up delay-300">
-                 <a href="https://drive.google.com/drive/folders/1441zYiGjtpiynHZVXoQ-ygZSdqwY5lN4" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-white border border-stone-200 rounded-full shadow-lg text-stone-800 font-bold hover:bg-stone-50 hover:border-amber-200 transition transform hover:-translate-y-1">
+                <a href="https://drive.google.com/drive/folders/1441zYiGjtpiynHZVXoQ-ygZSdqwY5lN4" target="_blank"
+                    class="inline-flex items-center gap-3 px-8 py-4 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-full shadow-lg text-stone-800 dark:text-stone-200 font-bold hover:bg-stone-50 dark:hover:bg-stone-700 hover:border-amber-200 transition transform hover:-translate-y-1">
                     <i class="fa-solid fa-camera-retro text-amber-600 text-xl"></i>
                     <span>View Shop Photos & Gallery</span>
                 </a>
-                <p class="text-xs text-stone-400 mt-3">External link to Google Drive</p>
+                <p class="text-xs text-stone-400 dark:text-stone-500 mt-3">External link to Google Drive</p>
             </div>
         </div>
-        
+
         <!-- Abstract BG Shapes -->
         <div class="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
-            <div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-amber-100/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse"></div>
-            <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-stone-200/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+            <div
+                class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-amber-100/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse">
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-stone-200/50 rounded-full mix-blend-multiply filter blur-3xl opacity-50">
+            </div>
         </div>
     </header>
 
     <!-- NEW: ANALYTICAL JOURNEY SECTION -->
-    <section id="journey" class="py-24 bg-stone-100 relative overflow-hidden border-y border-stone-200">
+    <section id="journey"
+        class="py-24 bg-stone-100 dark:bg-stone-900 relative overflow-hidden border-y border-stone-200 dark:border-stone-800">
         <!-- Background Elements -->
         <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-             <div class="absolute top-20 left-10 w-64 h-64 bg-amber-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-             <div class="absolute bottom-20 right-10 w-64 h-64 bg-stone-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div
+                class="absolute top-20 left-10 w-64 h-64 bg-amber-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob">
+            </div>
+            <div
+                class="absolute bottom-20 right-10 w-64 h-64 bg-stone-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000">
+            </div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
                 <span class="text-amber-600 font-bold uppercase tracking-widest text-xs">Methodology</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-2">From Manual Logs to Data-Driven Growth</h2>
-                <p class="text-stone-500 mt-4 max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 dark:text-white mt-2">From Manual Logs to
+                    Data-Driven Growth
+                </h2>
+                <p class="text-stone-500 dark:text-stone-400 mt-4 max-w-2xl mx-auto">
                     How I transformed scattered paper records into a strategic roadmap for Good Luck Furniture.
                 </p>
             </div>
 
             <div class="relative">
                 <!-- Connecting Line (Desktop) -->
-                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-stone-200 via-amber-200 to-stone-200 -translate-y-1/2 z-0 rounded-full"></div>
-                
+                <div
+                    class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-stone-200 via-amber-200 to-stone-200 dark:from-stone-800 dark:via-amber-900 dark:to-stone-800 -translate-y-1/2 z-0 rounded-full">
+                </div>
+
                 <div class="grid md:grid-cols-4 gap-8 relative z-10">
                     <!-- Step 1 -->
-                    <div class="group relative bg-white p-6 rounded-2xl shadow-sm border border-stone-100 hover:shadow-xl hover:border-amber-300 transition-all duration-300 hover:-translate-y-2">
-                        <div class="w-12 h-12 bg-stone-900 text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg group-hover:bg-amber-600 transition-colors relative z-10 mx-auto md:mx-0">1</div>
-                        <h3 class="text-lg font-bold text-stone-900 mb-2 text-center md:text-left">Discovery</h3>
-                        <p class="text-sm text-stone-500 text-center md:text-left">
-                            Identified the core pain point: <strong>Stockouts during "Lagan" (Wedding) seasons</strong> caused lost revenue.
+                    <div
+                        class="group relative bg-white dark:bg-stone-800 p-6 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-700 hover:shadow-xl hover:border-amber-300 transition-all duration-300 hover:-translate-y-2">
+                        <div
+                            class="w-12 h-12 bg-stone-900 text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg group-hover:bg-amber-600 transition-colors relative z-10 mx-auto md:mx-0">
+                            1</div>
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white mb-2 text-center md:text-left">
+                            Discovery</h3>
+                        <p class="text-sm text-stone-500 dark:text-stone-400 text-center md:text-left">
+                            Identified the core pain point: <strong>Stockouts during "Lagan" (Wedding) seasons</strong>
+                            caused lost revenue.
                         </p>
                         <!-- Mobile Connector -->
-                        <div class="md:hidden absolute bottom-[-32px] left-1/2 w-0.5 h-8 bg-stone-300 -translate-x-1/2"></div>
+                        <div class="md:hidden absolute bottom-[-32px] left-1/2 w-0.5 h-8 bg-stone-300 -translate-x-1/2">
+                        </div>
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="group relative bg-white p-6 rounded-2xl shadow-sm border border-stone-100 hover:shadow-xl hover:border-amber-300 transition-all duration-300 hover:-translate-y-2">
-                        <div class="w-12 h-12 bg-stone-900 text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg group-hover:bg-amber-600 transition-colors relative z-10 mx-auto md:mx-0">2</div>
-                        <h3 class="text-lg font-bold text-stone-900 mb-2 text-center md:text-left">Digitization</h3>
-                        <p class="text-sm text-stone-500 text-center md:text-left">
-                            Transcribed <strong>80+ manual ledger entries</strong> into digital datasets, cleaning inconsistent dates and prices.
+                    <div
+                        class="group relative bg-white dark:bg-stone-800 p-6 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-700 hover:shadow-xl hover:border-amber-300 transition-all duration-300 hover:-translate-y-2">
+                        <div
+                            class="w-12 h-12 bg-stone-900 text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg group-hover:bg-amber-600 transition-colors relative z-10 mx-auto md:mx-0">
+                            2</div>
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white mb-2 text-center md:text-left">
+                            Digitization</h3>
+                        <p class="text-sm text-stone-500 dark:text-stone-400 text-center md:text-left">
+                            Transcribed <strong>80+ manual ledger entries</strong> into digital datasets, cleaning
+                            inconsistent dates and prices.
                         </p>
-                         <div class="md:hidden absolute bottom-[-32px] left-1/2 w-0.5 h-8 bg-stone-300 -translate-x-1/2"></div>
+                        <div class="md:hidden absolute bottom-[-32px] left-1/2 w-0.5 h-8 bg-stone-300 -translate-x-1/2">
+                        </div>
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="group relative bg-white p-6 rounded-2xl shadow-sm border border-stone-100 hover:shadow-xl hover:border-amber-300 transition-all duration-300 hover:-translate-y-2">
-                        <div class="w-12 h-12 bg-stone-900 text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg group-hover:bg-amber-600 transition-colors relative z-10 mx-auto md:mx-0">3</div>
-                        <h3 class="text-lg font-bold text-stone-900 mb-2 text-center md:text-left">Analysis</h3>
-                        <p class="text-sm text-stone-500 text-center md:text-left">
-                            Applied <strong>Time-Series Forecasting</strong> to predict demand and <strong>Pareto Analysis</strong> to identify high-value products.
+                    <div
+                        class="group relative bg-white dark:bg-stone-800 p-6 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-700 hover:shadow-xl hover:border-amber-300 transition-all duration-300 hover:-translate-y-2">
+                        <div
+                            class="w-12 h-12 bg-stone-900 text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg group-hover:bg-amber-600 transition-colors relative z-10 mx-auto md:mx-0">
+                            3</div>
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white mb-2 text-center md:text-left">
+                            Analysis</h3>
+                        <p class="text-sm text-stone-500 dark:text-stone-400 text-center md:text-left">
+                            Applied <strong>Time-Series Forecasting</strong> to predict demand and <strong>Pareto
+                                Analysis</strong> to identify high-value products.
                         </p>
-                         <div class="md:hidden absolute bottom-[-32px] left-1/2 w-0.5 h-8 bg-stone-300 -translate-x-1/2"></div>
+                        <div class="md:hidden absolute bottom-[-32px] left-1/2 w-0.5 h-8 bg-stone-300 -translate-x-1/2">
+                        </div>
                     </div>
 
                     <!-- Step 4 -->
-                    <div class="group relative bg-white p-6 rounded-2xl shadow-sm border border-stone-100 hover:shadow-xl hover:border-amber-300 transition-all duration-300 hover:-translate-y-2">
-                        <div class="w-12 h-12 bg-stone-900 text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg group-hover:bg-amber-600 transition-colors relative z-10 mx-auto md:mx-0">4</div>
-                        <h3 class="text-lg font-bold text-stone-900 mb-2 text-center md:text-left">Strategy</h3>
-                        <p class="text-sm text-stone-500 text-center md:text-left">
-                            Formulated the <strong>"Bundle & Clear"</strong> strategy and a <strong>Supplier Diversification Plan</strong>.
+                    <div
+                        class="group relative bg-white dark:bg-stone-800 p-6 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-700 hover:shadow-xl hover:border-amber-300 transition-all duration-300 hover:-translate-y-2">
+                        <div
+                            class="w-12 h-12 bg-stone-900 text-white rounded-xl flex items-center justify-center font-bold text-xl mb-4 shadow-lg group-hover:bg-amber-600 transition-colors relative z-10 mx-auto md:mx-0">
+                            4</div>
+                        <h3 class="text-lg font-bold text-stone-900 dark:text-white mb-2 text-center md:text-left">
+                            Strategy</h3>
+                        <p class="text-sm text-stone-500 dark:text-stone-400 text-center md:text-left">
+                            Formulated the <strong>"Bundle & Clear"</strong> strategy and a <strong>Supplier
+                                Diversification Plan</strong>.
                         </p>
                     </div>
                 </div>
@@ -196,17 +348,19 @@
     </section>
 
     <!-- DATA DASHBOARD SECTION -->
-    <section id="dashboard" class="py-24 bg-white border-y border-stone-100">
+    <section id="dashboard" class="py-24 bg-white dark:bg-stone-950 border-y border-stone-100 dark:border-stone-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-10">
                 <div>
                     <span class="text-amber-600 font-bold uppercase tracking-widest text-xs">Raw Data Snapshot</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-2">Recent Sales Transactions</h2>
-                    <p class="text-stone-500 mt-2 max-w-lg">
+                    <h2 class="text-3xl md:text-4xl font-bold text-stone-900 dark:text-white mt-2">Recent Sales
+                        Transactions</h2>
+                    <p class="text-stone-500 dark:text-stone-400 mt-2 max-w-lg">
                         A glimpse into the cleaned dataset used for analysis, featuring real transactions.
                     </p>
                 </div>
-                <button class="mt-4 md:mt-0 flex items-center gap-2 text-sm font-bold text-stone-900 border border-stone-200 px-4 py-2 rounded-lg hover:bg-stone-50 transition">
+                <button
+                    class="mt-4 md:mt-0 flex items-center gap-2 text-sm font-bold text-stone-900 dark:text-stone-200 border border-stone-200 dark:border-stone-700 px-4 py-2 rounded-lg hover:bg-stone-50 dark:hover:bg-stone-800 transition">
                     <i class="fa-solid fa-database text-amber-600"></i> View Full Dataset (CSV)
                 </button>
             </div>
@@ -214,14 +368,18 @@
             <!-- Dashboard Grid -->
             <div class="grid lg:grid-cols-3 gap-8">
                 <!-- Transaction Table (Spans full width) -->
-                <div class="lg:col-span-3 bg-white rounded-2xl border border-stone-200 shadow-xl overflow-hidden">
-                    <div class="bg-stone-50 px-6 py-4 border-b border-stone-200 flex justify-between items-center">
-                        <h3 class="font-bold text-stone-700"><i class="fa-solid fa-table-list mr-2 text-amber-600"></i>Sales Ledger</h3>
-                        <span class="text-xs font-mono text-stone-400">Source: Dataset.csv</span>
+                <div
+                    class="lg:col-span-3 bg-white dark:bg-stone-900 rounded-2xl border border-stone-200 dark:border-stone-700 shadow-xl overflow-hidden">
+                    <div
+                        class="bg-stone-50 dark:bg-stone-800 px-6 py-4 border-b border-stone-200 dark:border-stone-700 flex justify-between items-center">
+                        <h3 class="font-bold text-stone-700 dark:text-stone-200"><i
+                                class="fa-solid fa-table-list mr-2 text-amber-600"></i>Sales Ledger</h3>
+                        <span class="text-xs font-mono text-stone-400 dark:text-stone-500">Source: Dataset.csv</span>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm text-left">
-                            <thead class="bg-stone-100 text-stone-500 font-bold uppercase tracking-wider text-xs">
+                            <thead
+                                class="bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400 font-bold uppercase tracking-wider text-xs">
                                 <tr>
                                     <th class="px-6 py-3">Date</th>
                                     <th class="px-6 py-3">Product</th>
@@ -230,32 +388,35 @@
                                     <th class="px-6 py-3">Profit</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-stone-100 font-mono text-stone-600">
+                            <tbody
+                                class="divide-y divide-stone-100 dark:divide-stone-800 font-mono text-stone-600 dark:text-stone-300">
                                 <!-- Data from Dataset.csv -->
-                                <tr class="hover:bg-amber-50/50 transition">
+                                <tr class="hover:bg-amber-50/50 dark:hover:bg-amber-900/20 transition">
                                     <td class="px-6 py-3">2024-04-16</td>
-                                    <td class="px-6 py-3 text-stone-900 font-medium">Sofa (3+1+1)</td>
+                                    <td class="px-6 py-3 text-stone-900 dark:text-white font-medium">Sofa (3+1+1)</td>
                                     <td class="px-6 py-3">₹45,000</td>
                                     <td class="px-6 py-3">₹54,000</td>
                                     <td class="px-6 py-3 text-green-600 font-bold">+₹9,000</td>
                                 </tr>
-                                <tr class="hover:bg-amber-50/50 transition">
+                                <tr class="hover:bg-amber-50/50 dark:hover:bg-amber-900/20 transition">
                                     <td class="px-6 py-3">2024-04-09</td>
-                                    <td class="px-6 py-3 text-stone-900 font-medium">Full Room Set</td>
+                                    <td class="px-6 py-3 text-stone-900 dark:text-white font-medium">Full Room Set</td>
                                     <td class="px-6 py-3">₹140,000</td>
                                     <td class="px-6 py-3">₹190,000</td>
                                     <td class="px-6 py-3 text-green-600 font-bold">+₹50,000</td>
                                 </tr>
-                                <tr class="hover:bg-amber-50/50 transition">
+                                <tr class="hover:bg-amber-50/50 dark:hover:bg-amber-900/20 transition">
                                     <td class="px-6 py-3">2023-08-02</td>
-                                    <td class="px-6 py-3 text-stone-900 font-medium">Teak Wood Diwan</td>
+                                    <td class="px-6 py-3 text-stone-900 dark:text-white font-medium">Teak Wood Diwan
+                                    </td>
                                     <td class="px-6 py-3">₹22,500</td>
                                     <td class="px-6 py-3">₹28,000</td>
                                     <td class="px-6 py-3 text-green-600 font-bold">+₹5,500</td>
                                 </tr>
-                                <tr class="hover:bg-amber-50/50 transition">
+                                <tr class="hover:bg-amber-50/50 dark:hover:bg-amber-900/20 transition">
                                     <td class="px-6 py-3">2023-07-15</td>
-                                    <td class="px-6 py-3 text-stone-900 font-medium">Small Bookshelf</td>
+                                    <td class="px-6 py-3 text-stone-900 dark:text-white font-medium">Small Bookshelf
+                                    </td>
                                     <td class="px-6 py-3">₹5,500</td>
                                     <td class="px-6 py-3">₹7,500</td>
                                     <td class="px-6 py-3 text-amber-600 font-bold">+₹2,000</td>
@@ -269,22 +430,26 @@
     </section>
 
     <!-- VISUAL ANALYTICS -->
-    <section id="analysis" class="py-24 bg-stone-50">
+    <section id="analysis" class="py-24 bg-stone-50 dark:bg-stone-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <span class="text-amber-600 font-bold uppercase tracking-widest text-xs">Deep Dive Analysis</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mt-2">Visualizing the Inefficiencies</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-900 dark:text-white mt-2">Visualizing the
+                    Inefficiencies</h2>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8">
                 <!-- Chart 1: Seasonality -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-lg transition duration-500">
+                <div <div
+                    class="bg-white dark:bg-stone-800 p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-700 hover:shadow-lg transition duration-500">
                     <div class="flex justify-between items-start mb-6">
                         <div>
-                            <h3 class="text-xl font-bold text-stone-900">The "Boom & Bust" Cycle</h3>
-                            <p class="text-stone-500 text-sm mt-1">Profits spike 10x during Nov/Dec vs Monsoon lows.</p>
+                            <h3 class="text-xl font-bold text-stone-900 dark:text-white">The "Boom & Bust" Cycle</h3>
+                            <p class="text-stone-500 dark:text-stone-400 text-sm mt-1">Profits spike 10x during Nov/Dec
+                                vs Monsoon lows.</p>
                         </div>
-                        <div class="bg-amber-50 w-10 h-10 rounded-full flex items-center justify-center text-amber-700">
+                        <div
+                            class="bg-amber-50 dark:bg-stone-700 w-10 h-10 rounded-full flex items-center justify-center text-amber-700 dark:text-amber-500">
                             <i class="fa-solid fa-chart-line"></i>
                         </div>
                     </div>
@@ -294,13 +459,17 @@
                 </div>
 
                 <!-- Chart 2: Category Mix -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-lg transition duration-500">
+                <div <div
+                    class="bg-white dark:bg-stone-800 p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-700 hover:shadow-lg transition duration-500">
                     <div class="flex justify-between items-start mb-6">
                         <div>
-                            <h3 class="text-xl font-bold text-stone-900">Profit Concentration (Pareto)</h3>
-                            <p class="text-stone-500 text-sm mt-1">Just 2 categories drive 64% of total profit.</p>
+                            <h3 class="text-xl font-bold text-stone-900 dark:text-white">Profit Concentration (Pareto)
+                            </h3>
+                            <p class="text-stone-500 dark:text-stone-400 text-sm mt-1">Just 2 categories drive 64% of
+                                total profit.</p>
                         </div>
-                        <div class="bg-amber-50 w-10 h-10 rounded-full flex items-center justify-center text-amber-700">
+                        <div
+                            class="bg-amber-50 dark:bg-stone-700 w-10 h-10 rounded-full flex items-center justify-center text-amber-700 dark:text-amber-500">
                             <i class="fa-solid fa-chart-pie"></i>
                         </div>
                     </div>
@@ -308,20 +477,25 @@
                         <canvas id="categoryChart"></canvas>
                     </div>
                 </div>
-                
-                 <!-- Chart 3: Price vs Profit Analysis -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-100 hover:shadow-lg transition duration-500 lg:col-span-2">
+
+                <!-- Chart 3: Price vs Profit Analysis -->
+                <div
+                    class="bg-white dark:bg-stone-800 p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-700 hover:shadow-lg transition duration-500 lg:col-span-2">
                     <div class="flex justify-between items-start mb-6">
-                         <div>
-                            <h3 class="text-xl font-bold text-stone-900">Price vs. Profit Correlation</h3>
-                            <p class="text-stone-500 text-sm mt-1">Strong positive correlation confirms healthy pricing strategy.</p>
+                        <div>
+                            <h3 class="text-xl font-bold text-stone-900 dark:text-white">Price vs. Profit Correlation
+                            </h3>
+                            <p class="text-stone-500 dark:text-stone-400 text-sm mt-1">Strong positive correlation
+                                confirms healthy pricing
+                                strategy.</p>
                         </div>
-                        <div class="bg-amber-50 w-10 h-10 rounded-full flex items-center justify-center text-amber-700">
+                        <div
+                            class="bg-amber-50 dark:bg-stone-700 w-10 h-10 rounded-full flex items-center justify-center text-amber-700 dark:text-amber-500">
                             <i class="fa-solid fa-arrow-up-right-dots"></i>
                         </div>
                     </div>
-                     <div class="relative h-72 w-full">
-                         <!-- Using a placeholder for scatter plot as chart.js scatter needs specific xy data structure, mimicking linear trend -->
+                    <div class="relative h-72 w-full">
+                        <!-- Using a placeholder for scatter plot as chart.js scatter needs specific xy data structure, mimicking linear trend -->
                         <canvas id="priceProfitChart"></canvas>
                     </div>
                 </div>
@@ -329,21 +503,26 @@
                 <!-- Chart 4: Supplier Bottleneck -->
                 <div class="lg:col-span-2 bg-stone-900 text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden">
                     <!-- Decor -->
-                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-amber-600 rounded-full blur-3xl opacity-20"></div>
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-amber-600 rounded-full blur-3xl opacity-20">
+                    </div>
 
                     <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
                         <div>
-                            <span class="text-amber-500 font-bold uppercase tracking-widest text-xs">Critical Finding</span>
+                            <span class="text-amber-500 font-bold uppercase tracking-widest text-xs">Critical
+                                Finding</span>
                             <h3 class="text-3xl font-bold mt-2 mb-4">Supply Chain Bottleneck Detected</h3>
                             <p class="text-stone-400 mb-6 leading-relaxed">
-                                Analysis of 22 supplier logs revealed that while most partners deliver within 24 hours, <strong class="text-white">"Sheesham Crafts Inc."</strong> averages a <strong class="text-red-400">5.5 day delay</strong>, causing 80% of production halts.
+                                Analysis of 22 supplier logs revealed that while most partners deliver within 24 hours,
+                                <strong class="text-white">"Sheesham Crafts Inc."</strong> averages a <strong
+                                    class="text-red-400">5.5 day delay</strong>, causing 80% of production halts.
                             </p>
                             <div class="flex gap-4">
                                 <div class="bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/10">
                                     <span class="block text-xs text-stone-400">Reliable Partner</span>
                                     <span class="font-bold text-green-400">Bharat Hardware (0.3d)</span>
                                 </div>
-                                <div class="bg-red-500/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-red-500/20">
+                                <div
+                                    class="bg-red-500/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-red-500/20">
                                     <span class="block text-xs text-stone-400">Risk Factor</span>
                                     <span class="font-bold text-red-400">Sheesham Crafts (5.5d)</span>
                                 </div>
@@ -359,102 +538,178 @@
     </section>
 
     <!-- STRATEGY SECTION -->
-    <section id="strategy" class="py-24 bg-white">
+    <section id="strategy" class="py-24 bg-white dark:bg-stone-950 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-16 text-center">Strategic Roadmap</h2>
-            
+            <h2 class="text-3xl md:text-4xl font-bold text-stone-900 dark:text-white mb-16 text-center">Strategic
+                Roadmap</h2>
+
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Strategy Card 1 -->
-                <div class="group p-8 rounded-3xl border border-stone-200 hover:border-amber-500 transition-all duration-300 hover:shadow-2xl relative bg-stone-50 hover:bg-white">
-                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl text-amber-700 mb-6 group-hover:bg-amber-600 group-hover:text-white transition">
+                <div
+                    class="group p-8 rounded-3xl border border-stone-200 dark:border-stone-800 hover:border-amber-500 transition-all duration-300 hover:shadow-2xl relative bg-stone-50 dark:bg-stone-900 hover:bg-white dark:hover:bg-stone-800">
+                    <div
+                        class="w-14 h-14 bg-white dark:bg-stone-800 rounded-2xl shadow-sm flex items-center justify-center text-2xl text-amber-700 dark:text-amber-500 mb-6 group-hover:bg-amber-600 group-hover:text-white transition">
                         <i class="fa-solid fa-calendar-check"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-stone-900 mb-3">Seasonal Inventory Plan</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed mb-6">
-                        Use the 32.6% growth forecast to procure top 10 items in September, preventing the annual November stockout.
+                    <h3 class="text-xl font-bold text-stone-900 dark:text-white mb-3">Seasonal Inventory Plan</h3>
+                    <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-6">
+                        Use the 32.6% growth forecast to procure top 10 items in September, preventing the annual
+                        November stockout.
                     </p>
-                    <div class="text-xs font-bold text-amber-700 uppercase tracking-wide opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
+                    <div
+                        class="text-xs font-bold text-amber-700 dark:text-amber-500 uppercase tracking-wide opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
                         Target Impact: +₹1.67 Lakh Profit
                     </div>
                 </div>
 
                 <!-- Strategy Card 2 -->
-                <div class="group p-8 rounded-3xl border border-stone-200 hover:border-amber-500 transition-all duration-300 hover:shadow-2xl relative bg-stone-50 hover:bg-white">
-                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl text-amber-700 mb-6 group-hover:bg-amber-600 group-hover:text-white transition">
+                <div
+                    class="group p-8 rounded-3xl border border-stone-200 dark:border-stone-800 hover:border-amber-500 transition-all duration-300 hover:shadow-2xl relative bg-stone-50 dark:bg-stone-900 hover:bg-white dark:hover:bg-stone-800">
+                    <div
+                        class="w-14 h-14 bg-white dark:bg-stone-800 rounded-2xl shadow-sm flex items-center justify-center text-2xl text-amber-700 dark:text-amber-500 mb-6 group-hover:bg-amber-600 group-hover:text-white transition">
                         <i class="fa-solid fa-tags"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-stone-900 mb-3">"Bundle & Clear"</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed mb-6">
-                        Liquidate dead stock (e.g., Rocking Chairs) by bundling with high-demand Beds. Reinvest capital into Custom orders.
+                    <h3 class="text-xl font-bold text-stone-900 dark:text-white mb-3">"Bundle & Clear"</h3>
+                    <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-6">
+                        Liquidate dead stock (e.g., Rocking Chairs) by bundling with high-demand Beds. Reinvest capital
+                        into Custom orders.
                     </p>
-                    <div class="text-xs font-bold text-amber-700 uppercase tracking-wide opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
+                    <div
+                        class="text-xs font-bold text-amber-700 dark:text-amber-500 uppercase tracking-wide opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
                         Target Impact: Free ₹1L Capital
                     </div>
                 </div>
 
                 <!-- Strategy Card 3 -->
-                <div class="group p-8 rounded-3xl border border-stone-200 hover:border-amber-500 transition-all duration-300 hover:shadow-2xl relative bg-stone-50 hover:bg-white">
-                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-2xl text-amber-700 mb-6 group-hover:bg-amber-600 group-hover:text-white transition">
+                <div
+                    class="group p-8 rounded-3xl border border-stone-200 dark:border-stone-800 hover:border-amber-500 transition-all duration-300 hover:shadow-2xl relative bg-stone-50 dark:bg-stone-900 hover:bg-white dark:hover:bg-stone-800">
+                    <div
+                        class="w-14 h-14 bg-white dark:bg-stone-800 rounded-2xl shadow-sm flex items-center justify-center text-2xl text-amber-700 dark:text-amber-500 mb-6 group-hover:bg-amber-600 group-hover:text-white transition">
                         <i class="fa-solid fa-handshake"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-stone-900 mb-3">Supplier Diversification</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed mb-6">
-                        Reduce dependency on "Sheesham Crafts" by qualifying 2 local backups (e.g., Rajesh Timber Store) for critical wood supplies.
+                    <h3 class="text-xl font-bold text-stone-900 dark:text-white mb-3">Supplier Diversification</h3>
+                    <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-6">
+                        Reduce dependency on "Sheesham Crafts" by qualifying 2 local backups (e.g., Rajesh Timber Store)
+                        for critical wood supplies.
                     </p>
-                    <div class="text-xs font-bold text-amber-700 uppercase tracking-wide opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
-                        Target Impact: < 2 Day Delay
+                    <div
+                        class="text-xs font-bold text-amber-700 dark:text-amber-500 uppercase tracking-wide opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
+                        Target Impact: < 2 Day Delay </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- DOWNLOADS -->
-    <section id="downloads" class="py-20 bg-stone-900 text-stone-300">
+    <section id="downloads"
+        class="py-20 bg-stone-100 dark:bg-stone-900 text-stone-600 dark:text-stone-300 transition-colors duration-300">
         <div class="max-w-5xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-white mb-6">Project Artifacts</h2>
-            <p class="mb-12 text-stone-400">Access the raw data files, presentation deck, and detailed PDF reports.</p>
-            
+            <h2 class="text-3xl font-bold text-stone-900 dark:text-white mb-6">Project Artifacts</h2>
+            <p class="mb-12 text-stone-500 dark:text-stone-400">Access the raw data files, presentation deck, and
+                detailed PDF reports.</p>
+
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-                <a href="final-report.pdf" target="_blank" class="p-4 bg-stone-800/50 border border-stone-700 rounded-xl hover:bg-amber-900/20 hover:border-amber-700/50 transition group">
-                    <i class="fa-solid fa-file-invoice text-2xl text-stone-500 group-hover:text-amber-500 mb-3 block"></i>
-                    <h4 class="text-white font-bold text-sm">Final Report</h4>
+                <a href="final-report.pdf" target="_blank"
+                    class="p-4 bg-white dark:bg-stone-800/50 border border-stone-200 dark:border-stone-700 rounded-xl hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:border-amber-500 dark:hover:border-amber-700/50 transition group">
+                    <i
+                        class="fa-solid fa-file-invoice text-2xl text-stone-400 dark:text-stone-500 group-hover:text-amber-500 mb-3 block"></i>
+                    <h4 class="text-stone-900 dark:text-white font-bold text-sm">Final Report</h4>
                     <p class="text-xs text-stone-500 mt-1">Full Analysis PDF</p>
                 </a>
-                <a href="presentation.pptx" target="_blank" class="p-4 bg-stone-800/50 border border-stone-700 rounded-xl hover:bg-amber-900/20 hover:border-amber-700/50 transition group">
-                    <i class="fa-solid fa-file-powerpoint text-2xl text-stone-500 group-hover:text-amber-500 mb-3 block"></i>
-                    <h4 class="text-white font-bold text-sm">Presentation</h4>
+                <a href="presentation.pptx" target="_blank"
+                    class="p-4 bg-white dark:bg-stone-800/50 border border-stone-200 dark:border-stone-700 rounded-xl hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:border-amber-500 dark:hover:border-amber-700/50 transition group">
+                    <i
+                        class="fa-solid fa-file-powerpoint text-2xl text-stone-400 dark:text-stone-500 group-hover:text-amber-500 mb-3 block"></i>
+                    <h4 class="text-stone-900 dark:text-white font-bold text-sm">Presentation</h4>
                     <p class="text-xs text-stone-500 mt-1">Executive Summary</p>
                 </a>
-                <a href="midterm.pdf" target="_blank" class="p-4 bg-stone-800/50 border border-stone-700 rounded-xl hover:bg-amber-900/20 hover:border-amber-700/50 transition group">
-                    <i class="fa-regular fa-file-pdf text-2xl text-stone-500 group-hover:text-amber-500 mb-3 block"></i>
-                    <h4 class="text-white font-bold text-sm">Mid-Term Report</h4>
+                <a href="midterm.pdf" target="_blank"
+                    class="p-4 bg-white dark:bg-stone-800/50 border border-stone-200 dark:border-stone-700 rounded-xl hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:border-amber-500 dark:hover:border-amber-700/50 transition group">
+                    <i
+                        class="fa-regular fa-file-pdf text-2xl text-stone-400 dark:text-stone-500 group-hover:text-amber-500 mb-3 block"></i>
+                    <h4 class="text-stone-900 dark:text-white font-bold text-sm">Mid-Term Report</h4>
                     <p class="text-xs text-stone-500 mt-1">Initial Findings</p>
                 </a>
-                <a href="Dataset.csv" class="p-4 bg-stone-800/50 border border-stone-700 rounded-xl hover:bg-amber-900/20 hover:border-amber-700/50 transition group">
-                    <i class="fa-solid fa-database text-2xl text-stone-500 group-hover:text-amber-500 mb-3 block"></i>
-                    <h4 class="text-white font-bold text-sm">Raw Dataset</h4>
+                <a href="Dataset.csv"
+                    class="p-4 bg-white dark:bg-stone-800/50 border border-stone-200 dark:border-stone-700 rounded-xl hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:border-amber-500 dark:hover:border-amber-700/50 transition group">
+                    <i
+                        class="fa-solid fa-database text-2xl text-stone-400 dark:text-stone-500 group-hover:text-amber-500 mb-3 block"></i>
+                    <h4 class="text-stone-900 dark:text-white font-bold text-sm">Raw Dataset</h4>
                     <p class="text-xs text-stone-500 mt-1">Sales CSV File</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="bg-stone-950 py-12 text-center text-stone-600 border-t border-stone-900">
-        <p class="text-stone-400 font-serif text-xl mb-2">Ayan Hussain</p>
+    <footer
+        class="bg-white dark:bg-stone-950 py-12 text-center text-stone-600 border-t border-stone-200 dark:border-stone-900 transition-colors duration-300">
+        <p class="text-stone-900 dark:text-stone-400 font-serif text-xl mb-2">Ayan Hussain</p>
         <p class="text-sm">IIT Madras • Roll No: 23f1000932</p>
         <div class="mt-6 flex justify-center gap-4">
-            <a href="#" class="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center hover:bg-stone-800 hover:text-white transition"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center hover:bg-stone-800 hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="mailto:23f1000932@ds.study.iitm.ac.in" class="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center hover:bg-stone-800 hover:text-white transition"><i class="fa-solid fa-envelope"></i></a>
+            <a href="#"
+                class="w-10 h-10 rounded-full bg-stone-100 dark:bg-stone-900 flex items-center justify-center hover:bg-stone-200 dark:hover:bg-stone-800 hover:text-stone-900 dark:hover:text-white transition"><i
+                    class="fa-brands fa-github"></i></a>
+            <a href="#"
+                class="w-10 h-10 rounded-full bg-stone-100 dark:bg-stone-900 flex items-center justify-center hover:bg-stone-200 dark:hover:bg-stone-800 hover:text-stone-900 dark:hover:text-white transition"><i
+                    class="fa-brands fa-linkedin-in"></i></a>
+            <a href="mailto:23f1000932@ds.study.iitm.ac.in"
+                class="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center hover:bg-stone-800 hover:text-white transition"><i
+                    class="fa-solid fa-envelope"></i></a>
         </div>
     </footer>
 
-    <!-- CHART CONFIGURATION -->
+    <!-- CHART CONFIGURATION & THEME LOGIC -->
     <script>
+        // --- Theme Toggle Logic ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        // Check for saved user preference, if any, on load
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            htmlElement.classList.remove('dark');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+
+        // Toggle function
+        themeToggleBtn.addEventListener('click', function () {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                updateCharts('light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                updateCharts('dark');
+            }
+        });
+
+        // --- Chart Configuration ---
+
+        // Helper to get chart colors based on theme
+        function getChartColors(theme) {
+            const isDark = theme === 'dark';
+            return {
+                grid: isDark ? '#44403c' : '#e5e7eb', // stone-700 : gray-200
+                text: isDark ? '#a8a29e' : '#6b7280'  // stone-400 : gray-500
+            };
+        }
+
+        const currentTheme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+        const initialColors = getChartColors(currentTheme);
+
         // 1. Seasonality (Report Data)
         const ctx1 = document.getElementById('seasonalityChart').getContext('2d');
-        new Chart(ctx1, {
+        const seasonalityChart = new Chart(ctx1, {
             type: 'line',
             data: {
                 labels: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May'],
@@ -479,13 +734,19 @@
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
-                scales: { y: { display: false }, x: { grid: { display: false } } }
+                scales: {
+                    y: { display: false },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: initialColors.text }
+                    }
+                }
             }
         });
 
         // 2. Categories (Report Data)
         const ctx2 = document.getElementById('categoryChart').getContext('2d');
-        new Chart(ctx2, {
+        const categoryChart = new Chart(ctx2, {
             type: 'doughnut',
             data: {
                 labels: ['Bed', 'Custom', 'Sofa', 'Table', 'Wardrobe', 'Chair'],
@@ -498,14 +759,23 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { position: 'right', labels: { usePointStyle: true, font: { family: 'Outfit' } } } },
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            usePointStyle: true,
+                            font: { family: 'Outfit' },
+                            color: initialColors.text
+                        }
+                    }
+                },
                 cutout: '75%'
             }
         });
 
         // 3. Price vs Profit (Scatter Approximation Line)
         const ctx4 = document.getElementById('priceProfitChart').getContext('2d');
-        new Chart(ctx4, {
+        const priceProfitChart = new Chart(ctx4, {
             type: 'line',
             data: {
                 labels: ['5k', '25k', '50k', '75k', '100k', '125k', '150k'],
@@ -522,12 +792,21 @@
                 }]
             },
             options: {
-                 responsive: true,
+                responsive: true,
                 maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
-                 scales: {
-                    x: { title: {display: true, text: 'Selling Price (₹)'} },
-                    y: { title: {display: true, text: 'Profit (₹)'}, beginAtZero: true }
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Selling Price (₹)', color: initialColors.text },
+                        grid: { color: initialColors.grid },
+                        ticks: { color: initialColors.text }
+                    },
+                    y: {
+                        title: { display: true, text: 'Profit (₹)', color: initialColors.text },
+                        beginAtZero: true,
+                        grid: { color: initialColors.grid },
+                        ticks: { color: initialColors.text }
+                    }
                 }
             }
         });
@@ -535,7 +814,7 @@
 
         // 4. Suppliers (Report Data)
         const ctx3 = document.getElementById('supplierChart').getContext('2d');
-        new Chart(ctx3, {
+        const supplierChart = new Chart(ctx3, {
             type: 'bar',
             data: {
                 labels: ['Bharat Hardware', 'Prayag Timbers', 'Royal Fabrics', 'Sheesham Crafts'],
@@ -557,6 +836,31 @@
                 }
             }
         });
+
+        // Function to update charts dynamically
+        function updateCharts(theme) {
+            const colors = getChartColors(theme);
+
+            // Update Seasonality Chart
+            seasonalityChart.options.scales.x.ticks.color = colors.text;
+            seasonalityChart.update();
+
+            // Update Category Chart
+            categoryChart.options.plugins.legend.labels.color = colors.text;
+            categoryChart.update();
+
+            // Update Price Profit Chart
+            priceProfitChart.options.scales.x.title.color = colors.text;
+            priceProfitChart.options.scales.x.grid.color = colors.grid;
+            priceProfitChart.options.scales.x.ticks.color = colors.text;
+            priceProfitChart.options.scales.y.title.color = colors.text;
+            priceProfitChart.options.scales.y.grid.color = colors.grid;
+            priceProfitChart.options.scales.y.ticks.color = colors.text;
+            priceProfitChart.update();
+
+            // Supplier chart is in a dark container always, so we don't update it
+        }
     </script>
 </body>
+
 </html>
